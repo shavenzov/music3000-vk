@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						  xmlns:s="library://ns.adobe.com/flex/spark" 
+						  xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:welcome="components.welcome.*" width="550" show="onShow()">
+	<fx:Metadata>
+		[Event(name="go", type="components.welcome.events.GoToEvent")]
+		[Event(name="close", type="mx.events.CloseEvent")]
+	</fx:Metadata>
+	<fx:Script source="mixopenedreadonly.as" />
+	<welcome:layout>
+		<s:VerticalLayout paddingLeft="8" paddingRight="8" paddingBottom="8" paddingTop="8"/>
+	</welcome:layout>
+	<welcome:states>
+		<s:State name="forBasicModeExceeded" />
+		<s:State name="perDayExceeded" />
+	</welcome:states>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout gap="10"/>
+		</s:layout>
+		<mx:Image source="{Assets.MESSAGEBOX_WARNING}" />
+		<s:RichText fontSize="23" id="caption" width="100%" paddingBottom="5" paddingTop="10"/>	
+	</s:Group>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout  paddingTop="10"/>
+		</s:layout>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout />
+			</s:layout>
+			<mx:LinkButton icon="{Assets.DELETE}" label="Закрыть" excludeFrom="perDayExceeded" paddingRight="8" fontSize="16" height="36" fontWeight="bold" useHandCursor="false" click="onCloseClick()"/>
+		</s:Group>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout horizontalAlign="right" />
+			</s:layout>	
+			<mx:LinkButton excludeFrom="forBasicModeExceeded" icon="{Assets.DELETE}" label="Закрыть" paddingRight="8" fontSize="16" height="36" fontWeight="bold" useHandCursor="false" click="onCloseClick()"/>
+			<mx:Button excludeFrom="perDayExceeded" height="36" fontSize="16" horizontalGap="8" label="Подключить" icon="{Assets.PRO_MODE_ICON}" labelPlacement="left" fontWeight="bold" click="onProClick()"/>
+		</s:Group>
+	</s:Group>
+</welcome:NavigatorContent>

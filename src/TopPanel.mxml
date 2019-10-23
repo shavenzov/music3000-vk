@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx" 
+				xmlns:controls="components.controls.*"
+				xmlns:nav="components.sequencer.controls.*" addedToStage="onAddedToStage()" removedFromStage="onRemovedFromStage()" initialize="onInit()">
+	<fx:Script source="topPanel.as" />
+	<controls:layout>
+		<s:VerticalLayout gap="0"/>
+	</controls:layout>
+	<s:Group width="100%" height="32">
+		<s:layout>
+			<s:HorizontalLayout verticalAlign="middle" paddingLeft="6" paddingRight="6"/>
+		</s:layout>
+		<s:Group height="100%" width="200" id="tools1">
+			<s:layout>
+				<s:HorizontalLayout gap="2" verticalAlign="middle"/> 
+			</s:layout>
+			<s:Group height="100%">
+				<s:layout>
+					<s:HorizontalLayout paddingRight="36" gap="2" verticalAlign="middle"/>
+				</s:layout>
+				<controls:LinkButton width="32" height="32" icon="{Assets.UNDO_ICON}" id="undo_button" click="undoClick(event)" enabled="false" toolTip="Отменить последнее действие"/>
+				<controls:LinkButton width="32" height="32" icon="{Assets.REDO_ICON}" id="redo_button" click="redoClick(event)" enabled="false" toolTip="Повторить последнее действие"/>
+			</s:Group>
+			<controls:LinkButton width="32" height="32" icon="{Assets.SELECT_ALL}" toolTip="Выбрать все сэмплы" id="select_all_button" click="selectAllClick()" enabled="false"/>
+			<controls:LinkButton width="32" height="32" icon="{Assets.COPY}" toolTip="Копировать выбранные сэмплы" id="copy_button" click="copyClick()" enabled="false"/>
+			<controls:LinkButton width="32" height="32" icon="{Assets.CUT}" toolTip="Вырезать выбранные сэмплы" id="cut_button" click="cutClick()" enabled="false"/>
+			<controls:LinkButton width="32" height="32" icon="{Assets.PASTE}" toolTip="Вставить сэмплы" id="paste_button" click="pasteClick()" enabled="false"/>
+			<controls:LinkButton width="32" height="32" icon="{Assets.DELETE}" toolTip="Удалить выбранные сэмплы" id="delete_button" click="deleteClick()" enabled="false"/>
+		</s:Group>
+		<s:Group height="100%" width="100%">
+			<s:layout>
+				<s:HorizontalLayout gap="2" verticalAlign="middle" horizontalAlign="center"/> 
+			</s:layout>
+			<controls:SaveLabel id="saveLabel"/>
+		</s:Group>
+		<s:Group height="100%" width="200" id="tools2">
+			<s:layout>
+				<s:HorizontalLayout gap="2" verticalAlign="middle" horizontalAlign="right"/> 
+			</s:layout>
+			<mx:LinkButton focusEnabled="false" tabEnabled="false" useHandCursor="false" width="32" height="32" icon="{Assets.NEW_PROJECT}" toolTip="Создать новый микс" id="new_project_button" includeInLayout="false" visible="false" click="newProjectClick()"/>
+			<mx:LinkButton focusEnabled="false" tabEnabled="false" useHandCursor="false" width="32" height="32" icon="{Assets.PROJECTS}" toolTip="Мои миксы" id="projects_button" click="projectsClick()"/>
+			<mx:LinkButton focusEnabled="false" tabEnabled="false" useHandCursor="false" width="32" height="32" icon="{Assets.MIXDOWN}" toolTip="Опубликовать микс" id="mixdown_button" click="mixdownClick()" includeInLayout="false" visible="false"/>
+			<s:Group width="50">
+				<s:layout>
+					<s:HorizontalLayout horizontalAlign="right" />
+				</s:layout>
+				<mx:LinkButton focusEnabled="false" tabEnabled="false" useHandCursor="false" width="32" height="32" icon="{Assets.HELP}" toolTip="Демо Миксы" click="helpClick()" />
+			</s:Group>
+		</s:Group>
+	</s:Group>
+	<nav:Navigator id="navigator" width="100%"/>
+</controls:Panel>

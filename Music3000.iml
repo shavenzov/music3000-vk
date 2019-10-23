@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="Flex" version="4">
+  <component name="FlexBuildConfigurationManager" active="AutomatizationTrackTest">
+    <configurations>
+      <configuration name="AutomatizationTrackTest" main-class="test.AutomatizationTrackTest" output-file="AutomatizationTrackTest.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="16.0">
+          <entries>
+            <entry library-id="f9f43dac-eb1b-4213-a55b-32f8330b637e">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="928361a8-6d2c-4c6f-ba25-fa8b23b3ca50">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="f226d5b3-f618-42ca-b53e-975837841e31">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="6b543867-56e5-4627-be5e-a7fffb00d3c8">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="MotionTest" main-class="test.MotionTest" output-file="MotionTest.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="16.0">
+          <entries>
+            <entry library-id="6563a16b-e8a8-4412-94a7-878f7fa29eac">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="23525d5d-edd6-4af0-912c-8d0a8e4ea31b">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="8769f6fa-ed33-4a9d-bd70-b2ba38d8236c">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="3746145b-2a5a-40f8-8dd8-1cfdc4188e64">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="Test" main-class="Test" output-file="Test.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="16.0">
+          <entries>
+            <entry library-id="b8d12932-b36f-48e1-9ce4-8a9ab6c3aa88">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="bb48af42-1272-47e2-910f-9b5b4991d60e">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="af95407e-7727-4c63-8c25-1913027a44e6">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="7730ae12-cf62-41b1-a5ba-d1b890ea9133">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="Library" main-class="components.library.Library" output-file="Library.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="16.0">
+          <entries>
+            <entry library-id="e0551564-05ae-42fe-8e2c-a584bfbd8b46">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="3ebe9347-f936-430e-9444-d78e39e77b2e">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="76a1235f-a26d-4ae2-9353-55a6a6945ff1">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="d0694a11-76fa-47ee-bf10-dfef32c8b9fd">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="AudioLoopTest" main-class="test.AudioLoopTest" output-file="AudioLoopTest.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="16.0">
+          <entries>
+            <entry library-id="87c4686b-d7ab-41d6-8104-c37b4d9be99c">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="b897b6bb-409c-4d79-a023-f1397b40fa08">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="aab38223-ad0d-4ed1-aa26-592b7aa3a09e">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="ddaacdf4-0546-4734-affd-ea3a6b54617a">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="tralala" main-class="tralala" output-file="tralala.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="16.0">
+          <entries>
+            <entry library-id="43ae1c7e-1048-46e7-afca-804da8cc315f">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="61e44821-5ade-420b-9c1d-f3e49bde3464">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="9b3c317c-fe51-456f-94ef-3192052aecd4">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="0021622a-a09a-479c-b037-d90ad271979e">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+    </configurations>
+    <compiler-options />
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="4.14.1" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="f9f43dac-eb1b-4213-a55b-32f8330b637e" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs/libs/" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="928361a8-6d2c-4c6f-ba25-fa8b23b3ca50" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/Common" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/Common/" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="f226d5b3-f618-42ca-b53e-975837841e31" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/FlexProject" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/FlexProject/" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="6b543867-56e5-4627-be5e-a7fffb00d3c8" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LOCALE_LOCATION$/version4locale" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$FLEXUNIT_LOCALE_LOCATION$/version4locale/" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="6563a16b-e8a8-4412-94a7-878f7fa29eac" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="23525d5d-edd6-4af0-912c-8d0a8e4ea31b" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/Common" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="8769f6fa-ed33-4a9d-bd70-b2ba38d8236c" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/FlexProject" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="3746145b-2a5a-40f8-8dd8-1cfdc4188e64" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LOCALE_LOCATION$/version4locale" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="b8d12932-b36f-48e1-9ce4-8a9ab6c3aa88" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="bb48af42-1272-47e2-910f-9b5b4991d60e" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/Common" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="af95407e-7727-4c63-8c25-1913027a44e6" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/FlexProject" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="7730ae12-cf62-41b1-a5ba-d1b890ea9133" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LOCALE_LOCATION$/version4locale" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="e0551564-05ae-42fe-8e2c-a584bfbd8b46" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="3ebe9347-f936-430e-9444-d78e39e77b2e" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/Common" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="76a1235f-a26d-4ae2-9353-55a6a6945ff1" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/FlexProject" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="d0694a11-76fa-47ee-bf10-dfef32c8b9fd" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LOCALE_LOCATION$/version4locale" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="87c4686b-d7ab-41d6-8104-c37b4d9be99c" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="b897b6bb-409c-4d79-a023-f1397b40fa08" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/Common" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="aab38223-ad0d-4ed1-aa26-592b7aa3a09e" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/FlexProject" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="ddaacdf4-0546-4734-affd-ea3a6b54617a" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LOCALE_LOCATION$/version4locale" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="43ae1c7e-1048-46e7-afca-804da8cc315f" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="61e44821-5ade-420b-9c1d-f3e49bde3464" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/Common" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="9b3c317c-fe51-456f-94ef-3192052aecd4" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/FlexProject" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="0021622a-a09a-479c-b037-d90ad271979e" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LOCALE_LOCATION$/version4locale" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

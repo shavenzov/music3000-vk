@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				   xmlns:s="library://ns.adobe.com/flex/spark"
+				   xmlns:controls="components.sequencer.controls.*"
+				   xmlns:mx="library://ns.adobe.com/flex/mx" backgroundColor="#333333" borderColor="#333333" backgroundAlpha="0.85" cornerRadius="6" dropShadowVisible="true" minHeight="0" minWidth="0" implements="mx.core.IToolTip,mx.core.IDataRenderer">
+	<fx:Script source="itemtooltip.as" />
+		<s:layout>
+			<s:VerticalLayout gap="0" paddingLeft="4" paddingRight="4" paddingTop="4" paddingBottom="4" />
+		</s:layout>
+		<s:Group>
+			<s:layout>
+				<s:HorizontalLayout />
+			</s:layout>
+			<controls:CategoryIcon id="category" />
+			<s:Group>
+				<s:layout>
+					<s:VerticalLayout gap="-4" />
+				</s:layout>
+				<mx:Text id="sampleName" maxWidth="250" fontSize="14"/>
+				<mx:Label id="genre" />
+			</s:Group>
+		</s:Group>
+	   <s:Group width="100%">
+		   <s:layout>
+			   <s:HorizontalLayout verticalAlign="middle" horizontalAlign="right" gap="2"/>
+		   </s:layout>
+		   <mx:Image width="16" height="16" source="{Assets.CLOCK_ICON_WHITE}"/>
+		   <s:RichText id="time" fontWeight="bold"/>
+		   <mx:Image width="16" height="16" source="{Assets.METRONOME_ICON}"/>
+		   <s:RichText id="tempo" fontWeight="bold"/>
+		   <mx:Image id="keyIcon" width="16" height="16" source="{Assets.NOTE_ICON_WHITE}" />
+		   <s:Label id="key" fontWeight="bold"/>
+	   </s:Group>
+	  <s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout paddingTop="6" verticalAlign="middle" horizontalAlign="right" gap="2"/>
+		</s:layout>
+		<mx:Image source="{Assets.CC_ICON}" />
+		<mx:Label id="author" />
+	</s:Group>
+</s:BorderContainer>

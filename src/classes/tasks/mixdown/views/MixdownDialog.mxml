@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx"
+				xmlns:controls="components.controls.*"
+				width="300"  borderColor="#000000" borderWeight="2" backgroundColor="#333333" backgroundAlpha="0.85" cornerRadius="8">
+	<s:states>
+		<s:State name="mixdown"/>
+		<s:State name="done" stateGroups="state1"/>
+		<s:State name="error" stateGroups="state1"/>
+	</s:states>
+	<s:currentState>mixdown</s:currentState>
+	<s:layout>
+		<s:VerticalLayout gap="0" paddingLeft="4" paddingRight="4" paddingBottom="4" paddingTop="4"/>
+	</s:layout>
+	<s:BorderContainer id="caption" width="100%" minHeight="0" backgroundColor="#000000" borderVisible="false" backgroundAlpha="0.5">
+		<s:layout>
+			<s:HorizontalLayout verticalAlign="middle"  paddingLeft="4"/>
+		</s:layout>
+		<mx:Image source="{Assets.MIXDOWN}" />
+		<mx:Label id="header" fontSize="16"/>
+	</s:BorderContainer>
+	<s:Group id="progressGroup" includeIn="mixdown,error" width="100%">
+		<s:layout>
+			<s:VerticalLayout gap="4" paddingTop="4"/>
+		</s:layout>
+		<s:RichText id="status" fontWeight.error="bold" fontSize="14" width="100%"/>
+		<mx:ProgressBar mode="manual" width="100%" height="30" id="progress" labelPlacement="center" />
+	</s:Group>
+	<s:Group id="doneGroup" includeIn="done" width="100%">
+		<s:layout>
+			<s:VerticalLayout horizontalAlign="center" gap="12" paddingBottom="8"/>
+		</s:layout>
+		<s:Group width="100%">
+			<s:layout>
+				<s:HorizontalLayout paddingTop="8" verticalAlign="middle"/>
+			</s:layout>
+			<mx:Image source="{Assets.LOGO}" width="80" height="70" />
+			<s:RichEditableText selectable="false" editable="false" width="100%" fontSize="14" id="doneText" />
+		</s:Group>
+		<controls:MultilineButton width="190" height="64" paddingLeft="8" visible="false" includeInLayout="false" label="Щелкни здесь для сохранения файла на компьютере" id="saveButton"/>
+	</s:Group>
+	<s:Group id="footer" width="100%">
+		<s:layout>
+			<s:HorizontalLayout horizontalAlign="right" paddingTop="14" paddingBottom="4" paddingRight="4"/>
+		</s:layout>
+		<mx:Button id="closeButton" label.mixdown="Отмена" label.state1="Закрыть" width="80"/>
+	</s:Group>
+</s:BorderContainer>

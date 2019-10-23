@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						  xmlns:s="library://ns.adobe.com/flex/spark" 
+						  xmlns:mx="library://ns.adobe.com/flex/mx" 
+						  xmlns:welcome="components.welcome.*" 
+						  width="680" show="onShow()">
+	<fx:Script source="proadvantages.as" />
+	<fx:Metadata>
+		[Event(name="go", type="components.welcome.events.GoToEvent")]
+		[Event(name="back", type="components.welcome.events.BackEvent")]
+	</fx:Metadata>
+	<welcome:states>
+		<s:State name="fromMenu" />
+		<s:State name="fromOther" />
+	</welcome:states>
+	<welcome:layout>
+		<s:VerticalLayout horizontalAlign="center"/>
+	</welcome:layout>
+	<s:RichText fontSize="23" width="100%" paddingBottom="10" paddingTop="10">
+		<s:content>
+			Преимущества <s:span fontWeight="bold">PRO</s:span> режима
+		</s:content>
+	</s:RichText>
+	<s:Group width="100%">
+		<s:layout>
+			<s:VerticalLayout gap="-1" />
+		</s:layout>
+		<s:BorderContainer width="100%" height="60" borderColor="#ffffff" borderAlpha="0.5" borderWeight="2" backgroundColor="#282828">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="middle" gap="20" paddingLeft="12" paddingTop="12" paddingRight="12" paddingBottom="12" />
+			</s:layout>
+			<s:Group width="28%"/>
+			<s:Label fontSize="20" width="40%" text="Обычный режим" />
+			<s:Label fontSize="20" width="40%" text="PRO Режим" />
+		</s:BorderContainer>
+		<s:List id="table" changing="onTableChanging( event )" borderColor="#ffffff" width="100%" itemRenderer="components.welcome.payments.ProComparisonItemRenderer" dataProvider="{new ArrayCollection( items )}">
+			<s:layout>
+				<s:VerticalLayout useVirtualLayout="false" requestedMinRowCount="1" gap="0"/>
+			</s:layout>
+		</s:List>
+		<s:Group width="100%">
+			<s:layout>
+				<s:HorizontalLayout horizontalAlign="right" />
+			</s:layout>
+			<s:RichText paddingTop="10" whiteSpaceCollapse="preserve">
+				<s:content>
+					*    желательно иметь быстрый интернет
+					**  не более 10-ти миксов в день     
+				</s:content>
+			</s:RichText>
+		</s:Group>
+	</s:Group>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout  paddingTop="16"/>
+		</s:layout>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout />
+			</s:layout>
+			<mx:LinkButton icon.fromOther="{Assets.DELETE}" icon.fromMenu="{Assets.ARROW_LEFT}" label.fromOther="Закрыть" label.fromMenu="Назад" paddingRight="8" fontSize="16" height="36" fontWeight="bold" useHandCursor="false" click="onCloseClick()"/>
+		</s:Group>
+		<s:Group width="50%">
+		 <s:layout>
+			 <s:HorizontalLayout horizontalAlign="right" />
+		 </s:layout>	
+			<mx:Button height="36" fontSize="16" horizontalGap="8" id="addButton" icon="{Assets.PRO_MODE_ICON}" labelPlacement="left" fontWeight="bold" click="onProClick()"/>
+		</s:Group>
+	</s:Group>
+</welcome:NavigatorContent>

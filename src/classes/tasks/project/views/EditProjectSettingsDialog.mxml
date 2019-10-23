@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				   xmlns:s="library://ns.adobe.com/flex/spark"
+				   xmlns:controls="components.controls.*"
+				   xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="360" borderColor="#000000" borderWeight="2" backgroundColor="#333333" backgroundAlpha="0.85" cornerRadius="8" creationComplete="creationComplete()" addedToStage="onAddedToStage()" removedFromStage="onRemovedFromStage()">
+	<fx:Script source="editprojectsettingsdialog.as"/>
+	<s:Group id="content" width="100%" height="100%">
+	<s:layout>
+		<s:VerticalLayout paddingLeft="4" paddingRight="4" paddingBottom="4" paddingTop="4"/>
+	</s:layout>
+	<s:BorderContainer id="caption" width="100%" minHeight="0" backgroundColor="#000000" borderVisible="false" backgroundAlpha="0.5">
+		<s:layout>
+		  <s:HorizontalLayout verticalAlign="middle"  paddingLeft="4"/>
+		</s:layout>
+		<mx:Image source="{Assets.NEW_PROJECT}" id="icon"/>
+		<mx:Label text="Свойства микса"  fontSize="16"/>
+		<s:Group width="100%">
+			<s:layout>
+				<s:HorizontalLayout gap="0" paddingRight="4" horizontalAlign="right" verticalAlign="middle"/>
+			</s:layout>
+			<mx:Image width="16" height="16" source="{Assets.CLOCK_ICON_WHITE}"/>
+			<mx:Label id="time" fontWeight="bold"/>
+			<mx:Image width="16" height="16" source="{Assets.METRONOME_ICON}" />
+			<mx:Label id="tempo" fontWeight="bold"/>
+		</s:Group>
+	</s:BorderContainer>
+	<s:Group id="controls" width="100%">
+		<s:layout>
+			<s:VerticalLayout gap="0" />
+		</s:layout>
+		<mx:Label text="Название" />
+		<s:TextInput id="projectName" restrict="^&#39;&quot;&#96;" width="100%" maxChars="32" change="change()"/>
+		<mx:Label text="Жанр" />
+		<s:ComboBox width="100%"  id="genre" prompt="Выбери жанр..." maxChars="32" change="genreChange()" />
+		<s:CheckBox id="autoGenre" label="Автоматически определять жанр" click="checkBoxClick()"/>
+		<mx:Label text="Описание" />
+		<s:TextArea id="description" width="100%" height="80" maxChars="512" restrict="^&#39;&quot;" change="change()"/>
+		<mx:Label text="Микс виден" />
+		<s:DropDownList width="100%"  id="access" change="accessChange()">
+			<s:dataProvider>
+				<s:ArrayCollection>
+					<fx:Object label="Всем" access="{ProjectAccess.ALL}" />
+					<fx:Object label="Друзьям" access="{ProjectAccess.FRIENDS}" />
+					<fx:Object label="Никому" access="{ProjectAccess.NOBODY}" />
+				</s:ArrayCollection>
+			</s:dataProvider>
+		</s:DropDownList>
+		<s:CheckBox label="Запретить редактирование/сохранение другими пользователями" id="readonly" click="change()"/>
+	</s:Group>
+	<s:Group id="footer" width="100%">
+		<s:layout>
+			<s:HorizontalLayout horizontalAlign="right" paddingBottom="8" paddingTop="8"/>
+		</s:layout>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout />
+			</s:layout>
+			<mx:Button id="commitButton" width="80" label="Сохранить" enabled="false" click="commitClick()"/>
+		</s:Group>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout horizontalAlign="right"/>
+			</s:layout>
+			<mx:Button id="closeButton"  width="80" label="Закрыть" click="closeClick()"/>
+		</s:Group>
+	</s:Group>
+   </s:Group>
+	<s:Group id="apply" visible="false" horizontalCenter="0" verticalCenter="0">
+		<s:layout>
+			<s:VerticalLayout horizontalAlign="center" />
+		</s:layout>
+		<controls:UIIndicator width="48" height="48"/>
+		<mx:Label text="Сохраняю..." fontSize="24"/>
+	</s:Group>
+</s:BorderContainer>

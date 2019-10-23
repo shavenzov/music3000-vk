@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						  xmlns:s="library://ns.adobe.com/flex/spark" 
+						  xmlns:mx="library://ns.adobe.com/flex/mx"
+						  xmlns:controls="components.controls.*"
+						  xmlns:welcome="components.welcome.*" width="600" show="onShow()" contentCreationComplete="onContentCreationComplete()">
+	<fx:Script source="buyCoins.as" />
+	<fx:Metadata>
+		[Event(name="go", type="components.welcome.events.GoToEvent")]
+		[Event(name="back", type="components.welcome.events.BackEvent")]
+	</fx:Metadata>
+	<welcome:states>
+		<s:State name="fromMenu" />
+		<s:State name="fromOther" />
+		<s:State name="loading" />
+	</welcome:states>
+<s:Group width="100%" height="100%" enabled.loading="false">	
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout paddingBottom="20" />
+		</s:layout>
+		<s:Label width="100%" text="Пополнение количества монет" fontSize="22" fontWeight="bold"/>
+	</s:Group>
+	<s:BorderContainer width="100%" backgroundColor="#202020" borderVisible="false">
+		<s:layout>
+			<s:HorizontalLayout paddingTop="12" paddingLeft="16" paddingBottom="12" paddingRight="6" verticalAlign="middle"/>
+		</s:layout>
+		<mx:Image source="{Assets.FREE_COINS}"/>
+		<s:RichText fontSize="16" width="100%">
+			<s:content>
+				Получи монеты бесплатно, выполнив простые задания.
+			</s:content>
+		</s:RichText>
+		<mx:Button icon="{Assets.OK_ICON}" label="Получить Бесплатно" paddingLeft="8" fontSize="16" fontWeight="bold" height="40" click="getFreeCoins()"/>
+	</s:BorderContainer>
+	<s:RichText fontSize="16" width="100%" paddingTop="8" paddingBottom="8">
+		<s:content>
+			Или введи желаемое количество
+		</s:content>
+	</s:RichText>
+	<s:BorderContainer width="100%" backgroundColor="#202020" borderVisible="false">
+		<s:layout>
+			<s:HorizontalLayout paddingTop="6" paddingLeft="16" paddingBottom="6" paddingRight="6" verticalAlign="middle"/>
+		</s:layout>
+		<s:NumericStepper id="coins" maximum="999" minimum="1" maxChars="3" fontSize="32" fontWeight="bold" width="90" change="coinsChange()"/>
+		<mx:Image source="{Assets.COIN}" width="32" height="32" id="coinsSymbol"/>
+		<s:Label text="=" fontSize="32" fontWeight="bold" />
+		<s:Label fontSize="32" fontWeight="bold" id="votes" />
+		<mx:Image source="{Assets.VK_ICON}" id="votesSymbol"/>
+		<s:Group width="100%">
+			<s:layout>
+				<s:HorizontalLayout horizontalAlign="right" />
+			</s:layout>
+			<mx:Button icon="{Assets.OK_ICON}" label="Приобрести" paddingLeft="8" fontSize="16" fontWeight="bold" height="40" click="buyCoinsClick()"/>
+		</s:Group>
+	</s:BorderContainer>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout  paddingTop="16"/>
+		</s:layout>
+		<mx:LinkButton icon.fromOther="{Assets.DELETE}" icon.fromMenu="{Assets.ARROW_LEFT}" label.fromOther="Закрыть" label.fromMenu="Назад" paddingRight="8" fontSize="16" height="36" fontWeight="bold" useHandCursor="false" click="onCloseClick()"/>
+	</s:Group>
+</s:Group>
+<controls:LabeledIndicator id="indicator" visible="false" visible.loading="true" horizontalCenter="0" verticalCenter="0" />	
+</welcome:NavigatorContent>

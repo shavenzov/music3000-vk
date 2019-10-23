@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				   xmlns:s="library://ns.adobe.com/flex/spark"
+				   xmlns:controls="components.controls.*"
+				   xmlns:users="components.controls.users.*"
+				   xmlns:mx="library://ns.adobe.com/flex/mx" width="550" height="415" borderColor="#000000" borderWeight="2" backgroundColor="#333333" backgroundAlpha="0.85" cornerRadius="8" creationComplete="creationComplete()" addedToStage="onAddedToStage()" removedFromStage="onRemovedFromStage()">
+	<fx:Script source="browseprojectsdialog.as"/>
+	<s:Group id="content" width="100%" height="100%">
+		<s:layout>
+			<s:VerticalLayout gap="0" paddingLeft="4" paddingRight="4" paddingBottom="4" paddingTop="4"/>
+		</s:layout>
+		<s:BorderContainer id="caption" width="100%" minHeight="0" backgroundColor="#000000" borderVisible="false" backgroundAlpha="0.5">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="middle"  paddingLeft="4"/>
+			</s:layout>
+			<mx:Image source="{Assets.PROJECTS}" />
+			<mx:Label text="Мои миксы" id="header" maxWidth="400" fontSize="16"/>
+			<s:Group width="100%" height="100%">
+				<s:layout>
+					<s:HorizontalLayout horizontalAlign="right" verticalAlign="middle" paddingRight="10"/>
+				</s:layout>
+				<mx:Label id="count" fontSize="16" fontWeight="bold"/>
+			</s:Group>
+		</s:BorderContainer>
+		<s:Group width="100%" height="100%">
+			<s:layout>
+				<s:HorizontalLayout gap="0" />
+			</s:layout>
+			<users:VUsersList width="60" height="100%" id="usersList">
+				<users:layout>
+					<s:VerticalLayout horizontalAlign="center" paddingTop="4" paddingBottom="4"/>
+				</users:layout>
+			</users:VUsersList>	
+			<s:Group width="100%" height="100%">
+				<s:layout>
+					<s:VerticalLayout />
+				</s:layout>
+				<s:Group id="tools" width="100%">
+					<s:layout>
+						<s:HorizontalLayout gap="0"/>
+					</s:layout>
+					<s:Group width="50%">
+						<s:layout>
+							<s:HorizontalLayout />
+						</s:layout>
+						<controls:LinkButton id="deleteButton" useHandCursor="false" width="32" height="32" icon="{Assets.DELETE}" toolTip="Удалить выбранный микс"  enabled="false"/>
+					</s:Group>
+					<s:Group width="50%">
+						<s:layout>
+							<s:HorizontalLayout horizontalAlign="right"/>
+						</s:layout>
+						<controls:LinkButton id="propertiesButton" useHandCursor="false" width="32" height="32" icon="{Assets.SETTING}" toolTip="Изменить свойства микса" enabled="false"/>
+					</s:Group>
+				</s:Group>
+				<s:Group width="100%">
+					<s:List id="projectsList" width="100%" height="300" itemRenderer="classes.tasks.project.views.ProjectItemRenderer" useVirtualLayout="true" doubleClickEnabled="true" doubleClick="projectsListDoubleClick()" change="projectsListChange(event)"/>	
+					<mx:Label horizontalCenter="0" verticalCenter="0" id="noMixes" fontSize="24" text="Пусто" visible="false" includeInLayout="false"/>
+				</s:Group>
+				<s:Group id="footer" width="100%" height="100%">
+					<s:layout>
+						<s:HorizontalLayout paddingLeft="4"/>
+					</s:layout>
+					<s:Group width="50%" height="100%">
+						<s:layout>
+							<s:HorizontalLayout verticalAlign="middle"/>
+						</s:layout>
+						<mx:Button id="openButton" label="Открыть микс" enabled="false" click="projectsListDoubleClick()"/>	
+					</s:Group>
+					<s:Group width="50%" height="100%">
+						<s:layout>
+							<s:HorizontalLayout horizontalAlign="right" verticalAlign="middle"/>
+						</s:layout>
+						<mx:Button id="closeButton"  width="80" label="Закрыть" click="closeClick()"/>
+					</s:Group>
+				</s:Group>
+			</s:Group>
+		</s:Group>
+	</s:Group>
+	<s:Group id="progress" horizontalCenter="0" verticalCenter="0">
+		<s:layout>
+			<s:VerticalLayout horizontalAlign="center" />
+		</s:layout>
+		<controls:UIIndicator width="48" height="48"/>
+		<mx:Label id="loadingText" text="Секундочку..." fontSize="24"/>
+	</s:Group>
+</s:BorderContainer>

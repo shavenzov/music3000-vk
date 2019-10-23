@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:controls="components.controls.*" borderColor="#666666" borderWeight="2" backgroundColor="#333333" backgroundAlpha="0.85" cornerRadius="8" initialize="initialization()" addedToStage="onAddedToStage()" removedFromStage="onRemovedFromStage()">
+	<fx:Script source="userinfo.as" />
+	<fx:Metadata>
+		[Event(name="go", type="components.welcome.events.GoToEvent")]
+	</fx:Metadata>
+	<s:layout>
+		<s:HorizontalLayout paddingLeft="8" paddingRight="8" paddingBottom="8" paddingTop="8"/>
+	</s:layout>
+	<controls:UserFace id="face"/>
+	<s:Group>
+		<s:layout>
+			<s:VerticalLayout gap="0"/>
+		</s:layout>
+		<s:Label id="userName" fontSize="14" fontWeight="bold"/>
+		<controls:TextLink id="coinsText" fontWeight="bold" fontSize="16" paddingTop="0" click="onCoinsClick()">
+			<controls:content>
+				<s:img source="{Assets.COIN}" width="14" height="14" baselineShift="-3" paddingRight="6" paddingLeft="3"/>
+				<s:span id="coins"/>
+			</controls:content>
+		</controls:TextLink>
+		<controls:TextLink id="pro_info" paddingTop="5" click="onProInfoClick()"/>
+	</s:Group>
+</s:BorderContainer>

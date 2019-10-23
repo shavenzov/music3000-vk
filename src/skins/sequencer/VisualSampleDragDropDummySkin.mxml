@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx"
+		minWidth="150" maxWidth="350" xmlns:primitives="components.primitives.*">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("components.sequencer.VisualSampleDragDropDummy")]
+	</fx:Metadata>
+	
+		<s:Group left="0" right="0" top="0" bottom="0">
+			<s:Rect radiusX="15" radiusY="15" left="0" right="0" top="0" bottom="0">
+				<s:fill>
+					<s:SolidColor color="{hostComponent.color}" alpha="0.64"/>
+				</s:fill>	
+			</s:Rect>
+			<s:Group left="0" right="0" top="0" bottom="0">
+				<primitives:LineFilledRectangle left="0" right="0" top="0" bottom="0" alpha="0.2" angle="135" interval="5.4">
+					<primitives:stroke>
+						<s:SolidColorStroke weight="2.35" caps="none" joints="miter" miterLimit="60" color="#FFFFFF"/>
+					</primitives:stroke>
+				</primitives:LineFilledRectangle>
+				<s:mask>
+					<s:Group>
+						<s:Rect radiusX="15" radiusY="15" height="{this.height}" width="{this.width}">
+							<s:fill>
+								<s:SolidColor color="#ffffff"/>
+							</s:fill>	
+						</s:Rect>
+					</s:Group>
+				</s:mask>
+			</s:Group>
+			<s:filters>
+				<s:DropShadowFilter blurX="9" blurY="9" distance="5"/>
+			</s:filters>
+		</s:Group>
+		
+		<s:Group left="10" verticalCenter="0" scaleX="1.9015198" scaleY="1.9015198">
+			<s:Path data="M4.7 0 4.7 11.2M4.95 10.7 8.95 6.2M4.45 10.45 0.45 6.45">
+				<s:stroke>
+					<s:SolidColorStroke weight="2" caps="none" joints="miter" miterLimit="60" color="#FFFFFF"/>
+				</s:stroke>
+			</s:Path>
+			<s:Path data="M4.7 0 0 0M9.25 0 4.7 0">
+				<s:stroke>
+					<s:SolidColorStroke weight="2.3" color="#FFFFFF"/>
+				</s:stroke>
+			</s:Path>
+		</s:Group>
+		
+		<s:Group left="35" right="5" verticalCenter="0">
+			<s:layout>
+				<s:VerticalLayout gap="0" verticalAlign="middle"/>
+			</s:layout>
+			<mx:Label text="Вставить семпл" fontWeight="bold" fontSize="14"/>
+			<mx:Label text="{hostComponent.text}" fontSize="14" width="100%" height="100%"/>	
+		</s:Group>
+</s:Skin>

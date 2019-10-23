@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					xmlns:s="library://ns.adobe.com/flex/spark"
+					xmlns:controls="components.controls.*"
+					xmlns:lcontrols="components.library.controls.*"
+					xmlns:mx="library://ns.adobe.com/flex/mx"
+					implements="components.library.ILibraryModule"
+					height="280" width="950"  contentCreationComplete="creationComplete()">
+	<fx:Script source="projectsamples.as"/>
+	<fx:Metadata>
+		[Event(name="searchBoxEnabledChanged", type="components.library.events.LibraryModuleEvent")]
+	</fx:Metadata>
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<s:Group id="content" width="100%" height="100%">
+      <s:layout>
+		  <s:HorizontalLayout gap="0" horizontalAlign="right"/>
+	  </s:layout>
+	  <s:Group height="100%">
+		  <s:layout>
+			  <s:VerticalLayout gap="0" horizontalAlign="right"/>
+		  </s:layout>
+		  <lcontrols:SortList id="sortList" sortFields="{['name', 'duration', 'tempo']}" sortParamsChanged="onSortParamsChanged( event )"/>
+		  <s:Group height="100%">
+			  <s:layout>
+				  <s:VerticalLayout paddingTop="16" />
+			  </s:layout>
+			  <controls:LinkButton icon="{Assets.COMPACT_PALETTE}" click="compactPalette()" width="23" height="23" toolTip="Удалить неиспользуемые семплы"/>
+		  </s:Group>
+		  <controls:SampleSoundVolume />
+	  </s:Group>
+		<s:Group width="265" height="100%">
+			<lcontrols:SampleList id="result" focusEnabled="false" tabEnabled="false" left="0" right="0" top="0" bottom="0" itemRenderer="components.library.project.PaletteItemRenderer"/>
+			<s:Label fontSize="24" text="Ничего не найдено" horizontalCenter="0" verticalCenter="0" visible="false" includeInLayout="false" id="emptySearch"/>
+		</s:Group>
+	</s:Group>
+	<mx:Label id="emptyLabel" visible="false" includeInLayout="false" horizontalCenter="0" verticalCenter="0" text="Пусто" fontSize="24" />
+</s:NavigatorContent>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" borderSkin="mx.skins.halo.ToolTipBorder" creationComplete="onCreationComplete()">
+	<fx:Script>
+		<![CDATA[
+			import classes.api.errors.APIError;
+			import classes.api.events.LimitationsEvent;
+			
+			import components.managers.HintManager;
+			import components.welcome.Slides;
+			
+			import mx.events.CloseEvent;
+			[Bindable]
+			public var text1 : String;
+			[Bindable]
+			public var text2 : String;
+			
+			private function onProClick() : void
+			{
+				HintManager.hideAll();
+				
+				if ( owner )
+				{
+					owner.dispatchEvent( new CloseEvent( CloseEvent.CLOSE ) );
+				}
+				
+				ApplicationModel.topPanel.showWelcomeDialog( Slides.PRO_ADVANTAGES );
+			}
+			
+			private function onCreationComplete() : void
+			{
+				labelText1.visible = labelText1.includeInLayout = text1 != null;
+				labelText2.visible = labelText2.includeInLayout = text2 != null;
+			}
+			
+			public static function create( text1 : String, text2 : String, owner : * = null ) : AddProToolTip
+			{
+				var tip : AddProToolTip = new AddProToolTip();
+				tip.width = 350;    
+				tip.text1 = text1;
+				tip.text2 = text2;
+				
+				if ( owner )
+				{
+					tip.owner = owner;
+				}
+					
+				return tip;	
+			}
+			
+			public static function show( text1 : String, text2 : String, target : Object = null, owner : * = null ) : void
+			{
+				HintManager.show( create( text1, text2, owner ), true, target, true ); 
+			}
+			
+			public static function showLimitationTip( code : int, target : Object = null, owner : * = null ) : void
+			{
+				if ( code == APIError.MAX_PROJECTS_PER_DAY_EXCEEDED )
+				{
+					HintManager.show( LimitationsEvent.getErrorDescription( code, true ), true, target, true );
+				}
+				else if ( code == APIError.MAX_PROJECTS_FOR_BASIC_MODE_EXCEEDED )
+				{
+					HintManager.show( create( LimitationsEvent.getErrorDescription( code, true ), 'Хочешь создавать неограниченное количество миксов? Подключай режим PRO!', owner ), true, target, true );
+				}
+			}
+		]]>
+	</fx:Script>
+	<mx:Text width="100%" id="labelText1" text="{text1}"/>
+	<mx:Text width="100%" id="labelText2" text="{text2}"  fontSize="14" fontWeight="normal"/>
+	<mx:HBox width="100%" horizontalAlign="right" paddingTop="8">
+		<mx:LinkButton label="Подключить режим" textDecoration="underline" icon="{Assets.PRO_MODE_ICON}" labelPlacement="left" useHandCursor="false" click="onProClick()"/>
+	</mx:HBox>
+</mx:VBox>

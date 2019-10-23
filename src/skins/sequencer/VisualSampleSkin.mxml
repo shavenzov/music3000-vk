@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx"
+		xmlns:primitives="com.music3000.components.sequencer.primitives.*" xmlns:primitives1="components.primitives.*">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("components.sequencer.VisualSample")]
+	</fx:Metadata>
+	<fx:Script>
+		<![CDATA[
+			override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+			{
+				super.updateDisplayList( unscaledWidth, unscaledHeight );
+				
+				if ( _resizeToLeftButton )
+				{
+					_resizeToLeftButton.x = 0;
+				}
+				
+				if ( _resizeToRightButton )
+				{
+					_resizeToRightButton.x = unscaledWidth - 8.10;
+				}
+				/*
+				if ( currentState == 'loading' )
+				{
+					var percent : Number = 100 * hostComponent.bytesLoaded / hostComponent.bytesTotal;
+					stripMask.explicitWidth = unscaledWidth * hostComponent.bytesLoaded / hostComponent.bytesTotal;
+				}
+				else
+				{
+					stripMask.explicitWidth = NaN; 
+				}*/	
+			}	
+		]]>
+	</fx:Script>
+	<!-- states -->
+	<s:states>
+		<s:State name="disabledAndSelected" />
+		<s:State name="downAndSelected" />
+		<s:State name="overAndSelected" />
+		<s:State name="upAndSelected" />
+		<s:State name="disabled" />
+		<s:State name="down" />
+		<s:State name="over" />
+		<s:State name="up" />
+		<s:State name="movingRight" />
+		<s:State name="movingLeft" />
+		<s:State name="loading" />
+		<s:State name="error" />
+	</s:states>
+	<!--Отображение семпла на треке-->
+	<s:Group left="0" right="0" top="0" bottom="0" cacheAsBitmap="true">
+		<s:Group left="0" right="0" top="0" bottom="0" cacheAsBitmap="true">
+			<primitives1:FilledVisualSample top="0" bottom="0" timeDuration="{hostComponent.timeDuration}" scale="{hostComponent.scale}" loopDuration="{hostComponent.loopDuration}" sampleOffset="{hostComponent.sampleOffset}">
+				<primitives:fill>
+					<s:SolidColor color="{hostComponent.color}" alpha="0.64"/>
+				</primitives:fill>	
+			</primitives1:FilledVisualSample>
+			
+			<s:mask>
+				<s:Group cacheAsBitmap="true">
+					<s:Rect width="{this.width}" height="{this.height}">
+						<s:fill>
+							<s:SolidColor color="#ffffff"/>
+						</s:fill>
+					</s:Rect>
+				</s:Group>
+             </s:mask>
+			
+		</s:Group>	
+		
+		<!--Кнопки изменения размера семпла-->
+		<s:Button includeIn="over, overAndSelected, downAndSelected, down, movingLeft" verticalCenter="0" id="_resizeToLeftButton" skinClass="com.music3000.skins.sequencer.VisualSampleResizeLeftSkin" />
+		<s:Button includeIn="over, overAndSelected, downAndSelected, down, movingRight" verticalCenter="0" id="_resizeToRightButton" skinClass="com.music3000.skins.sequencer.VisualSampleResizeRightSkin" />
+		
+		
+		<!--                               -->
+		
+		<!--Название семпла -->
+		<s:Label id="_sampleName" left="29" top="5.5" right="29" bottom="5" fontSize="16" text="{hostComponent.text}" />
+		<!--                -->
+		
+		<!--Кнопка вызова меню операций над семплом-->
+		<s:Button includeIn="over, overAndSelected, downAndSelected, down" id="_menuButton" left="4.5" top="4.5" skinClass="com.music3000.skins.sequencer.VisualSampleMenuButton" />
+		<!--               -->
+	</s:Group>
+</s:Skin>

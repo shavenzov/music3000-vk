@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:components="components.*"
+			   xmlns:sequencer="components.sequencer.*"
+			   xmlns:library="components.library.*"
+			   xmlns:local="*"
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="{Settings.MIN_APPLICATION_WIDTH}" minHeight="{Settings.MIN_APPLICATION_HEIGHT}"
+			    backgroundColor="#333333" preinitialize="onPreinitialize()" creationComplete="init()" preloader="MainPreloader" addedToStage="onAddedToStage()" frameRate="30">
+	<fx:Style source="styles.css"/>
+	<fx:Script source="tralala.as" />
+	<s:layout>
+		<s:VerticalLayout gap="0"/>
+	</s:layout>
+	<local:TopPanel id="topPanel" vs="{s}" width="100%" />
+	<sequencer:VisualSequencer id="s" width="100%" height="100%" /> 
+	<local:BottomPanel id="bottomPanel" vs="{s}" width="100%" />
+	<library:Library id="library" width="100%"/>
+</s:Application>

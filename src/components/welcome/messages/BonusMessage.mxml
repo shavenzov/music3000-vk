@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						  xmlns:s="library://ns.adobe.com/flex/spark" 
+						  xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:welcome="components.welcome.*" width="450" show="onShow()" hide="onHide()">
+	<fx:Script source="bonusmessage.as" />
+	<fx:Metadata>
+		[Event(name="back", type="components.welcome.events.BackEvent")]
+	</fx:Metadata>
+	<welcome:states>
+		<s:State name="fromMenu" />
+		<s:State name="fromOther" />
+	</welcome:states>
+	<welcome:layout>
+		<s:VerticalLayout paddingLeft="8" paddingRight="8" paddingBottom="8" paddingTop="8"/>
+	</welcome:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout gap="10" verticalAlign="top"/>
+		</s:layout>
+		<mx:Image id="image" />
+		<s:Group width="100%">
+			<s:layout>
+				<s:VerticalLayout />
+			</s:layout>
+			<s:RichText fontSize="23" id="caption" width="100%" paddingBottom="5" paddingTop="10"/>
+			<s:Group width="100%">
+				<s:layout>
+					<s:HorizontalLayout paddingRight="24" gap="8" horizontalAlign="right" verticalAlign="middle"/>
+				</s:layout>
+				<s:Label id="coins" fontWeight="bold" fontSize="23"/>
+				<mx:Image source="{Assets.COIN}" width="20" height="20" />
+			</s:Group>
+		</s:Group>
+	</s:Group>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout horizontalAlign="right" paddingTop="20"/>
+		</s:layout>
+		<mx:LinkButton icon="{Assets.OK_ICON}"  label="Хорошо" paddingRight="8" fontSize="16" height="36" fontWeight="bold" useHandCursor="false" click="onCloseClick()"/>
+	</s:Group>
+</welcome:NavigatorContent>

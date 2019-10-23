@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						  xmlns:s="library://ns.adobe.com/flex/spark" 
+						  xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:welcome="components.welcome.*" width="550" show="onShow()">
+	<fx:Metadata>
+		[Event(name="open", type="components.welcome.events.OpenProjectEvent")]
+	</fx:Metadata>
+	<fx:Script source="reloadprojectdialog.as" />
+	<welcome:layout>
+		<s:VerticalLayout paddingLeft="8" paddingRight="8" paddingBottom="8" paddingTop="8"/>
+	</welcome:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout verticalAlign="middle" gap="10"/>
+		</s:layout>
+		<mx:Image source="{Assets.RELOAD_PROJECT_ICON}" />
+		<s:RichText fontSize="23" id="caption" width="100%" paddingBottom="5" paddingTop="10"/>	
+	</s:Group>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout horizontalAlign="right"/>
+		</s:layout>
+		<mx:Button icon="{Assets.RELOAD_ICON}" label="Хорошо" horizontalGap="4" fontSize="16" height="36" fontWeight="bold" click="onOkClick()"/>
+	</s:Group>
+</welcome:NavigatorContent>

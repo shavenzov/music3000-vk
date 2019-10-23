@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx" 
+				autoDrawBackground="true" width="100%" height="60">
+	<fx:Script source="procomparisonitemrenderer.as" />
+	<s:layout>
+		<s:HorizontalLayout verticalAlign="middle" gap="20" paddingLeft="12" paddingTop="12" paddingRight="12" paddingBottom="12"/>
+	</s:layout>
+	<s:Group width="28%" height="100%">
+	 <s:layout>
+		 <s:HorizontalLayout gap="6" paddingRight="10" verticalAlign="middle" />
+	 </s:layout>
+	 <mx:Image id="icon" />
+	 <s:RichText id="feature" fontSize="16" />	
+	</s:Group>
+	<s:RichText width="40%" fontSize="14"  id="basic" />
+	<s:RichText width="40%" fontSize="14"  id="pro" />
+</s:ItemRenderer>

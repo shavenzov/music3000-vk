@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<local:DraggableRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx"
+				xmlns:freesound="components.library.freesound.*"
+				xmlns:local="components.library.*"
+				autoDrawBackground="true" width="100%" height="89">
+	<fx:Script source="soundRenderer.as" />
+	<local:layout>
+		<s:VerticalLayout gap="-8"/>
+	</local:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout />
+		</s:layout>
+		<mx:Label fontSize="14" width="100%" truncateToFit="true" fontWeight="bold" id="original_filename"/>
+		<mx:Label fontSize="14" id="bpm" />
+	</s:Group>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout gap="0" />
+		</s:layout>
+		<freesound:FreeSoundPlayer id="waveform"/>
+		<s:Group width="100%" height="100%">
+			<s:layout>
+				<s:VerticalLayout verticalAlign="middle" horizontalAlign="center" />
+			</s:layout>
+			<mx:Text id="description" width="100%" height="100%" selectable="false" fontSize="12" />
+		</s:Group>
+	</s:Group>
+</local:DraggableRenderer>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:controls="components.controls.*"
+		 xmlns:welcome="components.welcome.*"
+		 width="640" show="onShow()" hide="onHide()">
+	<fx:Metadata>
+		[Event(name="go", type="components.welcome.events.GoToEvent")]
+		[Event(name="open", type="components.welcome.events.OpenProjectEvent")]
+	</fx:Metadata>
+	<fx:Script source="video.as" />
+	<welcome:states>
+		<s:State name="firstTime" />
+		<s:State name="normal" stateGroups="stateNormal"/>
+	</welcome:states>
+	<welcome:layout>
+		<s:VerticalLayout gap="16"/>
+	</welcome:layout>
+	<s:Group width="100%">
+	<s:layout>
+		<s:HorizontalLayout verticalAlign="middle"/>
+	</s:layout>
+	<mx:Image source="{Assets.VIDEO_HELP}" />
+	<s:RichText id="title" width="100%" fontSize="22" fontWeight="bold">
+		<s:content>
+			Видео-введение
+		</s:content>
+	</s:RichText>
+	</s:Group>
+	<controls:VideoPlayer id="player" width="640" height="480" autoPlay="true" source="{Settings.VIDEO_HELP}"/>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout horizontalAlign="right" />
+		</s:layout>
+		<mx:LinkButton label="Назад" horizontalGap="8" height="36" icon="{Assets.ARROW_RIGHT}" labelPlacement="left" fontSize="16" fontWeight="bold" useHandCursor="false" includeIn="normal" click="backClick()"/>
+		<mx:LinkButton label="Далее" horizontalGap="8" height="36" icon="{Assets.ARROW_RIGHT}" labelPlacement="left" fontSize="16" useHandCursor="false" fontWeight="bold" includeIn="firstTime" click="nextClick()"/>
+	</s:Group>
+</welcome:NavigatorContent>

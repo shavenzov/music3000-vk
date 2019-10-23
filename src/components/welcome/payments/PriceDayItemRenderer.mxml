@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx" 
+				width="100%" autoDrawBackground="true" click="onClick()">
+    <fx:Script source="pricedayitemrenderer.as" />
+<s:Group left="0" right="0" top="0" bottom="0" id="container">
+	<s:layout>
+		<s:HorizontalLayout gap="30" verticalAlign="middle" paddingLeft="12" paddingTop="12" paddingRight="12" paddingBottom="12"/>
+	</s:layout>
+	<s:Group width="150">
+		<s:layout>
+				<s:VerticalLayout gap="0"/>
+		</s:layout>
+		<s:Label id="numDays" fontSize="24" fontWeight="bold" />
+		<s:Label id="pro_expired" fontSize="14"/>
+	</s:Group>
+	<s:Label text="-" fontSize="32" fontWeight="bold" />
+	<s:Group>
+		<s:layout>
+			<s:HorizontalLayout gap="16"/>
+		</s:layout>
+		<s:Label id="numCoins" textAlign="right" fontSize="32" width="40" fontWeight="bold" />
+		<mx:Image id="coins" source="{Assets.COIN}" width="32" height="32"/>
+	</s:Group>
+</s:Group>
+</s:ItemRenderer>

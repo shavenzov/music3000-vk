@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:controls="components.controls.*"
+		 xmlns:welcome="components.welcome.*" 
+		 xmlns:payments="components.welcome.payments.*"
+		 xmlns:messages="components.welcome.messages.*">
+	<fx:Script source="welcomedialog.as" />
+	<fx:Metadata>
+		[Event(name="open", type="components.welcome.events.OpenProjectEvent")]
+		[Event(name="newProject", type="flash.events.Event")]
+		[Event(name="browseProjects", type="flash.events.Event")]
+		[Event(name="close", type="mx.events.CloseEvent")]
+	</fx:Metadata>
+	<fx:Declarations>
+		<s:Fade id="Show" duration="{TWEEN_DURATION}" alphaFrom="0.0" alphaTo="1.0"/>
+		<s:Fade id="Hide" duration="{TWEEN_DURATION}" alphaFrom="1.0" alphaTo="0.0"/>
+	</fx:Declarations>
+	<payments:UserInfo horizontalCenter="0" top="0" depth="10" viewStack="{viewStack}" go="onGo( event )"/>
+	<s:BorderContainer horizontalCenter="0" verticalCenter="0" borderColor="#666666" borderWeight="2" backgroundColor="#333333" backgroundAlpha="0.85" cornerRadius="8">
+		<s:layout>
+			<s:VerticalLayout paddingLeft="8" paddingBottom="8" paddingRight="8" paddingTop="8"/>
+		</s:layout>
+		<mx:ViewStack resizeToContent="true" id="viewStack" preinitialize="viewStackPreinitialize()" initialize="viewStackInitialize()">
+			<welcome:FirstTime go="onGo( event )" showEffect="Show" hideEffect="Hide"/> <!--0-->
+			<welcome:Video go="onGo( event )" open="onOpen( event )" showEffect="Show" hideEffect="Hide"/><!--1-->
+			<welcome:Example go="onGo( event )" open="onOpen( event )" showEffect="Show" hideEffect="Hide" close="onClose( event )"/><!--2-->
+			<welcome:Welcome go="onGo( event )" open="onOpen( event )" newProject="onNewProject( event )" browseProjects="onBrowseProjects( event )" showEffect="Show" hideEffect="Hide"/><!--3-->
+			<payments:ProAdvantages groupIndex="1" go="onGo( event )" back="paymentsGroupBack( event )" showEffect="Show" hideEffect="Hide"/><!--4-->
+			<payments:AddProMode groupIndex="1" go="onGo( event )" back="paymentsGroupBack( event )" showEffect="Show" hideEffect="Hide"/><!--5-->
+			<payments:BuyCoins groupIndex="1" go="onGo( event )" back="paymentsGroupBack( event )" showEffect="Show" hideEffect="Hide"/><!--6-->
+			<payments:CoinsAdded groupIndex="1" go="onGo( event )" back="paymentsGroupBack( event )" showEffect="Show" hideEffect="Hide"/><!--7-->
+			<payments:ProModeActivated groupIndex="1" back="paymentsGroupBack( event )" showEffect="Show" hideEffect="Hide"/><!--8-->
+			<payments:ProExpiredDialog groupIndex="1" go="onGo( event )" back="paymentsGroupBack( event )" showEffect="Show" hideEffect="Hide"/><!--9-->
+			<payments:ReloadProjectDialog groupIndex="1" open="onOpen( event )" showEffect="Show" hideEffect="Hide"/><!--10-->
+			<payments:MixOpenedReadOnly groupIndex="1" close="onClose( event )" go="onGo( event )" showEffect="Show" hideEffect="Hide"/><!--11-->
+			<messages:BonusMessage groupIndex="2" back="paymentsGroupBack( event )" showEffect="Show" hideEffect="Hide" /><!--12--> 
+		</mx:ViewStack>
+	</s:BorderContainer>
+</s:Group>
+

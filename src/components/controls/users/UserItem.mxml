@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx"
+				xmlns:controls="components.controls.*"
+				autoDrawBackground="true">
+	<fx:Script>
+		<![CDATA[
+			import classes.api.social.vk.VKApi;
+			
+			override public function set data( value : Object ) : void
+			{
+				super.data = value;
+				
+				face.url = data.photo_50;
+				
+				if ( VKApi.userInfo.uid == data.uid )
+				{
+					if ( owner is VUsersList )
+					{
+						toolTip = 'Мои миксы';
+					}
+					else
+					{
+						toolTip = 'Мои последние миксы';
+					}
+				}
+				else
+				{
+					if ( owner is VUsersList )
+					{	
+						toolTip = 'Миксы\n' + VKApi.formatUserFullName( data );
+					}
+					else
+					{
+						toolTip  = 'Последние миксы\n' + VKApi.formatUserFullName( data );
+					}
+				}
+			}
+				
+		]]>
+	</fx:Script>
+	<s:layout>
+		<s:VerticalLayout gap="0" paddingLeft="2" paddingTop="2" paddingRight="2" paddingBottom="2" />
+	</s:layout>
+	<controls:UserFace id="face" width="50" height="50"/>
+</s:ItemRenderer>

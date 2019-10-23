@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						  xmlns:s="library://ns.adobe.com/flex/spark" 
+						  xmlns:mx="library://ns.adobe.com/flex/mx" 
+						  xmlns:welcome="components.welcome.*"
+						  xmlns:controls="components.controls.*"
+						  width="350" show="onShow()" hide="onHide()">
+<fx:Script source="addpromode.as" />
+	<fx:Metadata>
+		[Event(name="go", type="components.welcome.events.GoToEvent")]
+		[Event(name="back", type="components.welcome.events.BackEvent")]
+	</fx:Metadata>
+	<welcome:states>
+		<s:State name="fromMenu" />
+		<s:State name="fromOther" />
+		<s:State name="loading" />
+	</welcome:states>
+<s:Group left="0" right="0" top="0" bottom="0">	
+	<s:layout>
+		<s:VerticalLayout />
+	</s:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout verticalAlign="middle" paddingBottom="10" paddingTop="10"/>
+		</s:layout>
+		<s:Label id="caption" fontSize="23"/>
+		<mx:Image source="{Assets.PRO_MODE_ICON}" width="39.65" height="30"/>
+	</s:Group>
+	<s:Group width="100%" visible="false" includeInLayout="false" id="notEnoughCoinsContainer">
+		<s:layout>
+			<s:VerticalLayout verticalAlign="middle" paddingLeft="8" paddingRight="8"/>
+		</s:layout>
+		<s:RichText id="notEnoughCouns" width="100%" fontSize="14" color="0xff0000"/>
+	</s:Group>
+	<s:List enabled.loading="false" width="100%" minHeight="200" id="prices" borderColor="#ffffff" itemRenderer="components.welcome.payments.PriceDayItemRenderer" changing="onTableChanging( event )">
+		<s:layout>
+			<s:VerticalLayout useVirtualLayout="false" requestedMinRowCount="1" gap="0"/>
+		</s:layout>
+	</s:List>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout  paddingTop="10"/>
+		</s:layout>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout />
+			</s:layout>
+			<mx:LinkButton enabled.loading="false" icon.fromOther="{Assets.DELETE}" icon.fromMenu="{Assets.ARROW_LEFT}" label.fromOther="Закрыть" label.fromMenu="Назад" paddingRight="8" fontSize="16" height="36" fontWeight="bold" useHandCursor="false" click="onCloseClick()"/>
+		</s:Group>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout horizontalAlign="right" />
+			</s:layout>	
+			<mx:Button enabled.loading="false" height="36" fontSize="16" horizontalGap="8" id="addButton" visible="false" includeInLayout="false" icon="{Assets.PRO_MODE_ICON}" labelPlacement="left" fontWeight="bold" click="onSwitchOnProModeClick()"/>
+			<mx:Button label="Пополнить" toolTip="Щелкни здесь для пополнения количества монет" id="buyButton" icon="{Assets.COIN}" fontSize="16" fontWeight="bold" paddingLeft="10" horizontalGap="6" height="36" visible="false" includeInLayout="false" click="onBuyClick()"/>
+		</s:Group>
+	</s:Group>
+</s:Group>
+<controls:LabeledIndicator id="indicator" visible="false" visible.loading="true" horizontalCenter="0" verticalCenter="0" />		
+</welcome:NavigatorContent>

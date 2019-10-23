@@ -1,0 +1,384 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace controls "components.controls.*";
+@namespace sequencer "components.sequencer.*";
+@namespace sequencer_controls "components.sequencer.controls.*";
+
+@font-face{
+  src:url('/assets/digital-7.ttf');
+  unicode-range:U+0030-U+003A; /*Только цифры и двоеточие*/
+  font-family:Digital;
+  font-weight:normal;
+  embedAsCFF:false;
+}
+
+/*
+Внедряем символы: базовой латиницы, базовой кирилицы, 
+*/
+
+@font-face{
+	src:url('/assets/CALIBRI.TTF');
+	unicode-range:
+		U+0020-U+0040, /* Punctuation, Numbers */
+		U+0041-U+005A, /* Upper-Case A-Z */
+		U+005B-U+0060, /* Punctuation and Symbols */
+		U+0061-U+007A, /* Lower-Case a-z */
+		U+007B-U+007E, /* Punctuation and Symbols */
+		U+00FC-U+00FD, /* UE */
+		U+0410-U+042F, /* Cyrillic Upper-Case */
+		U+0430-U+0451; /* Cyrillic Lower-Case */  
+	font-family:Calibri;
+	font-weight:normal;
+	embedAsCFF:true;
+}
+/*
+@font-face{
+	src:url('/assets/CALIBRIB.TTF');
+	unicode-range:
+		U+0020-U+0040, 
+		U+0041-U+005A, 
+		U+005B-U+0060, 
+		U+0061-U+007A, 
+		U+007B-U+007E, 
+		U+00FC-U+00FD, 
+		U+0410-U+042F, 
+		U+0430-U+0451;   
+	font-family:Calibri;
+	font-weight:bold;
+	embedAsCFF:true;
+}
+*/
+global{
+	fontFamily:Calibri;
+	font-size:12;
+	color:#ffffff;
+	focus-color:#EF8200;
+	focus-alpha:0.5;
+	modalTransparencyBlur:2;
+	modalTransparencyColor:#000000;
+	modalTransparencyDuration:300;
+}
+
+mx|global
+{
+	textFieldClass: ClassReference("mx.core.UIFTETextField");
+}
+
+sequencer|VisualSampleDragDropDummy{
+  skin-class : ClassReference( "skins.sequencer.VisualSampleDragDropDummySkin" );
+}
+
+s|HScrollBar{
+  skinClass : ClassReference( "skins.HScrollBarSkin" );
+}
+
+s|VScrollBar{
+	skinClass : ClassReference( "skins.VScrollBarSkin" );
+}
+
+s|Scroller{
+ skin-class : ClassReference( "skins.ScrollerSkin" );	
+}
+
+controls|VideoPlayer{
+	skin-class : ClassReference( "skins.VideoPlayerSkin" );
+}
+
+mx|ProgressBar{
+  barColor:	#EF8200;
+  borderColor : #333333;
+  barSkin: ClassReference( "mx.skins.halo.ProgressBarSkin" );
+  trackSkin: ClassReference( "mx.skins.halo.ProgressTrackSkin" );
+  disabledColor:#000000;
+  /*indeterminate-skin : ClassReference( "mx.skins.halo.ProgressIndeterminateSkin" );*/
+}
+
+s|TextInput{
+	content-background-alpha:0;
+	border-color:#ffffff;
+}
+
+s|TextArea{
+	content-background-alpha:0;
+	border-color:#ffffff;
+}
+
+s|ComboBox{
+	border-color:#ffffff;
+	skin-class:ClassReference( "skins.ComboBoxSkin" );
+	drop-shadow-visible:true;
+}
+
+s|DropDownList
+{
+	borderColor:#ffffff;
+	skin-class:ClassReference( "skins.DropDownListSkin" );
+	drop-shadow-visible:true;
+}
+
+s|NumericStepper{
+  borderVisible:false;
+  skinClass:ClassReference( "skins.NumericStepperSkin" );
+}
+
+mx|Button{
+  up-skin   : Embed( source="/assets/assets.swf", symbol="button_normal" );
+  over-skin : Embed( source="/assets/assets.swf", symbol="button_hovered" );
+  down-skin : Embed( source="/assets/assets.swf", symbol="button_down" );
+  disabled-skin : Embed( source="/assets/assets.swf", symbol="button_disabled" );
+  selected-up-skin : Embed( source="/assets/assets.swf", symbol="button_selected_normal" );
+  selected-over-skin : Embed( source="/assets/assets.swf", symbol="button_selected_hovered" );
+  selected-down-skin : Embed( source="/assets/assets.swf", symbol="button_selected_down" );
+  selected-disabled-skin : Embed( source="/assets/assets.swf", symbol="button_selected_disabled" );
+  text-roll-over-color : #ffffff;
+  text-selected-color : #ffffff;
+  disabled-color : #9D9D9D;
+}
+
+mx|CheckBox{
+	upIcon               : Embed( source="/assets/assets.swf", symbol="checkbox_normal" );
+	overIcon             : Embed( source="/assets/assets.swf", symbol="checkbox_hovered" );
+	downIcon             : Embed( source="/assets/assets.swf", symbol="checkbox_hovered" );
+	disabledIcon         : Embed( source="/assets/assets.swf", symbol="checkbox_hovered" );
+	selectedUpIcon       : Embed( source="/assets/assets.swf", symbol="checkbox_selected_normal" );
+	selectedOverIcon     : Embed( source="/assets/assets.swf", symbol="checkbox_selected_hovered" );
+	selectedDownIcon     : Embed( source="/assets/assets.swf", symbol="checkbox_selected_hovered" );
+	selectedDisabledIcon : Embed( source="/assets/assets.swf", symbol="checkbox_selected_hovered" );
+	
+	text-roll-over-color : #ffffff;
+	text-selected-color : #ffffff;
+	disabled-color : #9D9D9D;
+}
+
+.playButton{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="play_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="play_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="play_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="play_normal" );
+}
+
+.stopButton{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="stop_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="stop_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="stop_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="stop_normal" );
+}
+
+.fastBackwardButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="fast_backward_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="fast_backward_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="fast_backward_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="fast_backward_normal" );
+}
+
+.fastForwardButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="fast_forward_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="fast_forward_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="fast_forward_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="fast_forward_normal" );
+}
+
+.closeButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="close_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="close_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="close_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="close_normal" );
+}
+
+.resetButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="reset_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="reset_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="reset_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="reset_normal" );
+}
+
+.libraryButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="search_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="search_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="search_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="search_normal" );
+	
+	selected-up-skin : Embed( source="/assets/assets.swf", symbol="search_normal_selected" );
+	selected-over-skin : Embed( source="/assets/assets.swf", symbol="search_hover_selected" );
+	selected-down-skin : Embed( source="/assets/assets.swf", symbol="search_down_selected" );
+}
+
+.repeatButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="repeat_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="repeat_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="repeat_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="repeat_normal" );
+	
+	selected-up-skin : Embed( source="/assets/assets.swf", symbol="repeat_selected_normal" );
+	selected-over-skin : Embed( source="/assets/assets.swf", symbol="repeat_selected_hover" );
+	selected-down-skin : Embed( source="/assets/assets.swf", symbol="repeat_selected_down" );
+}
+
+.fullScreenButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="full_screen_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="full_screen_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="full_screen_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="full_screen_normal" );
+	
+	selected-up-skin : Embed( source="/assets/assets.swf", symbol="full_screen_selected_normal" );
+	selected-over-skin : Embed( source="/assets/assets.swf", symbol="full_screen_hover_selected" );
+	selected-down-skin : Embed( source="/assets/assets.swf", symbol="full_screen_down_selected" );
+}
+
+.prevButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="previous_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="previous_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="previous_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="previous_normal" );
+}	
+
+.projectButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="project_normal" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="project_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="project_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="project_normal" );
+	
+	selected-up-skin : Embed( source="/assets/assets.swf", symbol="project_normal_selected" );
+	selected-over-skin : Embed( source="/assets/assets.swf", symbol="project_hover_selected" );
+	selected-down-skin : Embed( source="/assets/assets.swf", symbol="project_down_selected" );
+}
+
+.favoriteButton
+{
+	up-skin   : Embed( source="/assets/assets.swf", symbol="favorite_unselected" );
+	over-skin : Embed( source="/assets/assets.swf", symbol="favorite_hover" );
+	down-skin : Embed( source="/assets/assets.swf", symbol="favorite_down" );
+	disabled-skin : Embed( source="/assets/assets.swf", symbol="favorite_down" );
+	
+	selected-up-skin : Embed( source="/assets/assets.swf", symbol="favorite" );
+	selected-over-skin : Embed( source="/assets/assets.swf", symbol="favorite_hover" );
+	selected-down-skin : Embed( source="/assets/assets.swf", symbol="favorite_down" );	
+}
+
+mx|LinkButton{
+  padding-bottom:0;
+  padding-top:0;
+  horizontal-gap:0;
+  vertical-gap:0;
+  font-weight:normal;
+  over-skin : Embed( source="/assets/assets.swf", symbol="button_hovered" );
+  down-skin : Embed( source="/assets/assets.swf", symbol="button_down" );
+  selected-up-skin : Embed( source="/assets/assets.swf", symbol="button_selected_normal" );
+  selected-over-skin : Embed( source="/assets/assets.swf", symbol="button_selected_hovered" );
+  selected-down-skin : Embed( source="/assets/assets.swf", symbol="button_selected_down" );
+  text-roll-over-color : #ffffff;
+  text-selected-color : #ffffff;
+  disabled-color : #1E1E1E;
+}
+
+s|List{
+	alternating-item-colors : #202020, #282828;
+	/*alternating-item-alphas : 0.2, 0.2;*/
+	roll-over-color : #AE6C0C;
+	/*roll-over-alpha : 0.25;*/
+	selection-color : #EF8200;
+	border-alpha : 0.25;
+	contentBackgroundColor : #333333;
+	/*selection-alpha : 0.75;*/
+	content-background-alpha : 0;
+	font-size:12;	
+}
+/*
+.browseProjectsList{
+	itemAlpha:1.0;
+}
+*/
+mx|Slider{
+	thumbDisabledSkin : Embed( '/assets/assets.swf', symbol='thumb' );
+	thumbDownSkin : Embed( '/assets/assets.swf', symbol='thumb_down' );
+	thumbOverSkin : Embed( '/assets/assets.swf', symbol='thumb_over' );
+	thumbUpSkin : Embed( '/assets/assets.swf', symbol='thumb' );
+	trackSkin : ClassReference( "components.hslider.HSliderTrackSkin" );
+	trackHighlightSkin : ClassReference( "components.hslider.SliderHighlightSkin" );
+	themeColor:#EF8200;
+	tick-color:#ffffff;
+	data-tip-offset:0;
+}
+
+.toolTip{
+	color : #ffffff;
+	font-size : 14px;
+	background-color : #0099FF;
+	background-alpha : 0.85;
+	border-color : #0099FF;
+	border-style : solid; 
+	border-alpha : 0.85;
+	corner-radius : 6;
+	drop-shadow-visible : true;
+	font-weight:bold;
+}
+
+.errorTip { 
+	color : #ffffff;
+	font-size : 14px;
+	corner-radius : 6;
+	drop-shadow-visible : true;  
+}
+
+mx|Menu{
+	border-skin : ClassReference( "mx.skins.halo.HaloBorder" );
+	background-alpha : 0.9; 
+	backgroundColor:#312E2B;
+	borderThickness:1;
+	borderStyle:solid;
+	borderColor:#000000; 
+	cornerRadius: 5;
+	font-size:12pt;
+	font-weight:bold;
+	color:#ffffff;
+	textSelectedColor:#EF8200;
+	textRollOverColor:#EF8200;
+	selectionColor:#34322f;
+	rollOverColor:#34322f;
+	horizontalGap:0;
+	leftIconGap:12;
+	rightIconGap:3;
+	
+	itemPaddingTop : 3;
+	itemPaddingBottom : 3;
+	
+	useDelimiter:yes;
+	delimiterColor:#5d5b59;
+	delimiterThickness:1;
+	
+	drop-shadow-enabled:true;    	
+}
+
+.boldTextStyle{
+ font-weight:bold;	
+}
+
+sequencer_controls|SoundPanKnob{
+	font-weight:bold;
+	font-size:8;
+}
+
+sequencer_controls|TrackNumber{
+	font-size:12;
+	number-text-style:'boldTextStyle';
+}
+
+sequencer_controls|ControlPage{
+	font-size:12;
+	/*font-weight:bold;*/
+}
+
+s|SkinnableTextBase:normalWithPrompt {
+	color: #CCCCFF;
+}
+

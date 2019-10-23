@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <vk>
+   <albumName>Мои миксы</albumName>
+   <support>vk.com/musdesigner</support>
+  </vk>
+  <help>
+   <video>musconstructor.com/tra/video/intro.mp4</video>
+  </help>
+  <looperman>
+	  <amfHost>musconstructor.com/</amfHost> 
+	  <localization>
+	   <categorys>
+		 <item id="Accordion Loops" icon="accordion.png">Аккордион</item>
+		 <item id="Bagpipe Loops" icon="bagpipe.png">Волынка</item>
+		 <item id="Banjo Loops" icon="banjo.png">Банджо</item>
+		 <item id="Bass Loops" icon="bass_guitar.png">Басс</item>
+		 <item id="Bass Wobble Loops" icon="hellertion.png" short="Басс">Дабстеп бас</item>
+		 <item id="Bass Guitar Loops" icon="bass_guitar.png" short="Басс">Басс гитара</item>
+		 <item id="Bass Synth Loops" icon="synthesizer.png" short="Басс">Басс синтезатор</item>
+		 <item id="Beatbox Loops" icon="drum_machine.png" short="Машина">Драм-машина</item>
+		 <item id="Bells Loops" icon="bells.png">Колокольчики</item>
+		 <item id="Brass Loops" icon="baritone_horn.png" short="Труба">Духовые-медные</item>
+		 <item id="Choir Loops" icon="choir.png">Хор</item>
+		 <item id="Clarinet Loops" icon="clarinet.png">Кларнет</item>
+		 <item id="Didgeridoo Loops" icon="didgeridoo.png" short="Ядаки">Диджериду</item>
+		 <item id="Drum Loops" icon="drums.png">Ударные</item>
+		 <item id="Flute Loops" icon="waterflute.png">Флейта</item>
+		 <item id="Fx Loops" icon="dj_mixer.png">Эффекты</item>
+		 <item id="Groove Loops" icon="groove.png">Грув</item>
+		 <item id="Guitar Loops Acoustic" icon="acoustic_guitar.png" short="Гитара">Акустическая гитара</item>
+		 <item id="Guitar Loops Electric" icon="electric_guitar.png" short="Гитара">Электро-гитара</item>
+		 <item id="Harmonica Loops" icon="harmonica.png" short="Гармошка">Губная гармошка</item>
+		 <item id="Harpsichord Loops" icon="clavecin.png">Клавесин</item>
+		 <item id="Harp Loops" icon="harp.png">Арфа</item>
+		 <item id="Mandolin Loops" icon="mandolin.png">Мандолина</item>
+		 <item id="Orchestral Loops" icon="orchestral.png" short="Оркестр">Оркестровые</item>
+		 <item id="Organ Loops" icon="hammond_organ.png">Орган</item>
+		 <item id="Pad Loops" icon="pad.png">Пад</item>
+		 <item id="Percussion Loops" icon="maraca.png">Перкуссия</item>
+		 <item id="Piano Loops" icon="piano.png">Пианино</item>
+		 <item id="Scratch Loops" icon="dj_turntable.png">Скретч</item>
+		 <item id="Sitar Loops" icon="sitar.png">Ситар</item>
+		 <item id="Strings Loops" icon="harp.png" short="Оркестр">Струнные оркестр</item>
+		 <item id="Synth Loops" icon="synthesizer.png" short="Синт">Синтезатор</item>
+		 <item id="Tabla Loops" icon="tabla.png">Табла</item>
+		 <item id="Ukulele Loops" icon="ukulele.png">Укулеле</item>
+		 <item id="Violin Loops" icon="fiddle.png">Скрипка</item>
+		 <item id="Vocal Loops" icon="microphone.png">Вокал</item>
+		 <item id="Woodwind Loops" icon="washint.png" short="Дудка">Духовые-деревянные</item>
+	 </categorys>
+	   <genres>
+		 <item id="na">Другое</item>
+		 <item id="Acid">Эйсид</item>
+		 <item id="Acoustic">Акустика</item>
+		 <item id="Ambient">Эмбиент</item>
+		 <item id="Blues">Блюз</item>
+		 <item id="Breakbeat">Брейк-бит</item>
+		 <item id="Chill Out">Чилаут</item>
+		 <item id="Cinematic">Кино</item>
+		 <item id="Classical">Классическая</item>
+		 <item id="Comedy">Комедия</item>
+		 <item id="Country">Кантри</item>
+		 <item id="Crunk">Кранк</item>
+		 <item id="Dance">Танцевальная</item>
+		 <item id="Deep House">Дип Хаус</item>
+		 <item id="Dirty">Грязная</item>
+		 <item id="Disco">Диско</item>
+		 <item id="Drum And Bass">Драм-н-бэйс</item>
+		 <item id="Dub">Даб</item>
+		 <item id="Dubstep">Дабстеп</item>
+		 <item id="Electro">Электро</item>
+		 <item id="Electronic">Электроника</item>
+		 <item id="Ethnic">Этническая</item>
+		 <item id="Folk">Фольк</item>
+		 <item id="Funk">Фанк</item>
+		 <item id="Fusion">Фьюжн</item>
+		 <item id="Garage">Гэридж</item>
+		 <item id="Glitch">Глитч</item>
+		 <item id="Grime">Грязь</item>
+		 <item id="Grunge">Гранж</item>
+		 <item id="Hardcore">Хардкор</item>
+		 <item id="Heavy Metal">Тяжелый метал</item>
+		 <item id="Hip Hop">Хип-хоп</item>
+		 <item id="House">Хаус</item>
+		 <item id="Industrial">Индастриал</item>
+		 <item id="Jazz">Джаз</item>
+		 <item id="Jungle">Джангл</item>
+		 <item id="Orchestral">Симфоническая</item>
+		 <item id="Pop">Поп</item>
+		 <item id="Punk">Панк</item>
+		 <item id="Rap">Рэп</item>
+		 <item id="Rave">Рэйв</item>
+		 <item id="Reggae">Рэгги</item>
+		 <item id="Reggaeton">Рэггатон</item>
+		 <item id="Religious">Религиозная</item>
+		 <item id="RnB">RnB</item>
+		 <item id="Rock">Рок</item>
+		 <item id="Samba">Самба</item>
+		 <item id="Ska">Ска</item>
+		 <item id="Spoken Word">Разговорная</item>
+		 <item id="Techno">Техно</item>
+		 <item id="Trance">Транс</item>
+		 <item id="Trap">Трап</item>
+		 <item id="Weird">Роковая</item>
+		 <item id="Psychedelic">Психоделическая</item>
+		 <item id="RnB">Ритм-н-блюз</item>
+		 <item id="Soul">Соул</item>
+		 <item id="Trip Hop">Трип-Хоп</item>
+		 <item id="8Bit Chiptune">8 Бит Чиптюн</item>
+		 <item id="Dancehall">Дэнсхолл</item>
+		 <item id="Moombahton">Мумбатон</item>
+	 </genres>
+      </localization>
+  </looperman>
+</data>

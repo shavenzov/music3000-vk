@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("components.sequencer.VisualSampleDropCursor")]
+	</fx:Metadata>
+	<!--Отображение места занимаемого семплом в момент попытки разместить семпл на дорожке-->
+	<s:Group left="0" right="0" bottom="0" top="0">
+		<s:Rect left="3.7" top="2" bottom="2" right="0">
+			<s:fill>
+				<s:SolidColor color="{hostComponent.color}" alpha="0.16"/>
+			</s:fill>
+		</s:Rect>
+		<s:Rect left="0" top="0" bottom="0">
+			<s:stroke>
+				<s:SolidColorStroke weight="3.7" color="{hostComponent.color}"/>
+			</s:stroke>
+		</s:Rect>
+	</s:Group>
+</s:Skin>

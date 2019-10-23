@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    ADOBE SYSTEMS INCORPORATED
+    Copyright 2008 Adobe Systems Incorporated
+    All Rights Reserved.
+
+    NOTICE: Adobe permits you to use, modify, and distribute this file
+    in accordance with the terms of the license agreement accompanying it.
+
+-->
+<!--- The default skin class for Spark TextInput component.  
+
+     @see spark.components.TextInput
+        
+      @langversion 3.0
+      @playerversion Flash 10
+      @playerversion AIR 1.5
+      @productversion Flex 4
+-->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+    alpha.disabledStates="0.5" blendMode="normal">
+
+    <fx:Metadata>
+    <![CDATA[ 
+        /** 
+         * @copy spark.skins.spark.ApplicationSkin#hostComponent
+         */
+        [HostComponent("spark.components.TextInput")]
+    ]]>
+    </fx:Metadata>     
+    <s:states>
+        <s:State name="normal"/>
+        <s:State name="disabled" stateGroups="disabledStates"/>
+        <s:State name="normalWithPrompt"/>
+        <s:State name="disabledWithPrompt" stateGroups="disabledStates"/>
+    </s:states>
+        
+	<mx:Image source="{Assets.SEARCH_TEXT_INPUT_SKIN}" left="0" right="0" top="0" bottom="0" />
+	
+    <!-- text -->
+    <!--- @copy spark.components.supportClasses.SkinnableTextBase#textDisplay -->
+    <s:RichEditableText id="textDisplay"
+              verticalAlign="middle"
+              widthInChars="10" fontSize="14"
+              left="8" right="58" verticalCenter="0" />
+    <!--- Defines the Label that is used for prompt text. The includeInLayout property is false so the prompt text does not affect measurement. -->
+    <s:Label id="promptDisplay" maxDisplayedLines="1"
+                verticalAlign="middle" fontSize="14"
+                mouseEnabled="false" mouseChildren="false"
+                includeIn="normalWithPrompt,disabledWithPrompt" 
+                 left="8" right="58" verticalCenter="0"
+                />
+	
+	<mx:Button tabEnabled="false" id="searchButton" focusEnabled="false" styleName="libraryButton" right="20" verticalCenter="0" toolTip="Искать"/>
+	<mx:Button tabEnabled="false" id="resetButton" focusEnabled="false" styleName="resetButton" left="-39" verticalCenter="0" toolTip="Сбросить параметры поиска"/>
+</s:SparkSkin>

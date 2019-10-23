@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:controls="components.controls.*"
+		 xmlns:users="components.controls.users.*"
+		 xmlns:welcome="components.welcome.*" width="700" contentCreationComplete="creationComplete()">
+	<fx:Script source="welcome.as" />
+	<fx:Metadata>
+		[Event(name="go", type="components.welcome.events.GoToEvent")]
+		[Event(name="open", type="components.welcome.events.OpenProjectEvent")]
+		[Event(name="newProject", type="flash.events.Event")]
+		[Event(name="browseProjects", type="flash.events.Event")]
+	</fx:Metadata>
+	<welcome:states>
+		<s:State name="loadingProjects" stateGroups="loading"/>
+		<s:State name="newMixLoading" stateGroups="loading" />
+		<s:State name="normal" />
+	</welcome:states>
+	<welcome:currentState>normal</welcome:currentState>
+	<welcome:layout>
+		<s:VerticalLayout gap="16" paddingLeft="16" paddingRight="16" horizontalAlign="center"/>
+	</welcome:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout verticalAlign="middle" paddingLeft="2" paddingTop="2"/>
+		</s:layout>
+		<mx:Image source="{Assets.LOGO}" width="72" height="66"/>
+		<s:RichText id="title" width="100%" fontSize="22"/>
+	</s:Group>
+	<s:Group width="100%" enabled.loading="false">
+		<s:layout>
+			<s:HorizontalLayout verticalAlign="middle"/>
+		</s:layout>
+		<mx:LinkButton icon="{Assets.NEW_PROJECT}" id="newMixButton" label="Создать новый микс" fontSize="16" fontWeight="bold" height="36" useHandCursor="false" click="newMixClick()"/>
+		<controls:UIIndicator width="36" height="36" includeIn="newMixLoading"/>
+	</s:Group>
+	<users:HUsersList width="100%" height="60" id="userslist" enabled.loading="false" change="onUsersChange()">
+		<users:layout>
+			<s:HorizontalLayout verticalAlign="middle" paddingLeft="4" paddingRight="4"/>
+		</users:layout>
+	</users:HUsersList>
+	<s:Group width="100%">
+		<s:Group left="0" right="0" top="0" bottom="0" enabled.loading="false">
+			<s:layout>
+				<s:HorizontalLayout gap="10"/>
+			</s:layout>
+			<s:Group width="50%" height="300" id="menu">
+				<welcome:MyMixesList id="myMixes" left="0" right="0" top="0" bottom="0" open="onOpen( event )" startUpdate="onStartUpdate()" updated="onProjectsLoaded()"/>
+				<controls:UIIndicator id="indicator" horizontalCenter="0" verticalCenter="0" includeIn="loadingProjects" width="64" height="64"/>
+			</s:Group>
+			<welcome:ExamplesList width="50%" height="300" open="onOpen( event )" />
+		</s:Group>
+	</s:Group>
+	<s:Group width="100%" enabled.loading="false">
+		<s:layout>
+			<s:HorizontalLayout />
+		</s:layout>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout />
+			</s:layout>
+			<mx:LinkButton icon="{Assets.PROJECTS}" id="projectsButton" visible="false" label="Все миксы..." fontSize="16" fontWeight="bold" height="36" useHandCursor="false" click="browseClick()"/>
+		</s:Group>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout horizontalAlign="right" />
+			</s:layout>
+			<mx:LinkButton icon="{Assets.VIDEO_HELP}" label="Видео-введение" fontSize="16" fontWeight="bold" height="36" useHandCursor="false" click="videoClick()"/>	
+		</s:Group>
+	</s:Group>
+</welcome:NavigatorContent>

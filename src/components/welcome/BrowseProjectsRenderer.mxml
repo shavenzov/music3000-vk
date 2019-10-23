@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx" autoDrawBackground="false" creationComplete="creationComplete()">
+	<fx:Script source="browseprojectsrenderer.as"/>
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="hovered" stateGroups="downAndHover"/>
+		<s:State name="down" stateGroups="downAndHover"/>
+	</s:states>
+	<s:layout>
+		<s:HorizontalLayout />
+	</s:layout>
+	<mx:Image id="icon" width="24" height="24" source="{Assets.PROJECTS}"/>
+	<mx:Label id="mixName" text="Все миксы..." fontSize="14" textDecoration.downAndHover="underline" color.down="#AE6C0C" color.hovered="#EF8200"/>
+</s:ItemRenderer>

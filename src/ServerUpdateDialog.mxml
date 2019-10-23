@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx"
+				xmlns:controls="components.controls.*"
+				width="340" borderColor="#000000" borderAlpha="0.85" cornerRadius="8" borderWeight="2" backgroundColor="#333333" backgroundAlpha="0.9">
+<fx:Script>
+	<![CDATA[
+		import com.utils.DateUtils;
+		
+		[Bindable]
+		public var end : Date;
+		[Bindable]
+		public var reason : String;
+	]]>
+</fx:Script>
+<s:states>
+	<s:State name="updating"/>
+	<s:State name="updated"/>
+</s:states>
+<s:currentState>updating</s:currentState>	
+<s:Group horizontalCenter="0" verticalCenter="0">
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center" gap="10" paddingTop="14" paddingBottom="14"/>
+	</s:layout>
+	<mx:Image source="{Assets.ENGINE_ANIMATION}" />
+	<s:Label text.updating="{reason}" text.updated="Обновление завершилось!" textAlign="center" maxWidth="333" fontSize="16"/>
+	<s:Group>
+		<s:layout>
+			<s:VerticalLayout horizontalAlign="center"/>
+		</s:layout>
+		<s:Label text.updating="Дождись завершения обновления или зайди позже..." text.updated="Для завершения обнови страницу."/>
+		<s:Label visible.updated="false" includeInLayout.updated="false" text="Обновление завершится : {DateUtils.format( end )}" />
+	</s:Group>
+</s:Group>		
+</s:BorderContainer>

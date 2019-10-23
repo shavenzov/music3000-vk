@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						  xmlns:s="library://ns.adobe.com/flex/spark" 
+						  xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:welcome="components.welcome.*" width="500" show="onShow()" hide="onHide()">
+	<fx:Script source="coinsadded.as" />
+	<fx:Metadata>
+		[Event(name="back", type="components.welcome.events.BackEvent")]
+		[Event(name="go", type="components.welcome.events.GoToEvent")]
+	</fx:Metadata>
+	<welcome:states>
+		<s:State name="fromMenu" />
+		<s:State name="fromOther" />
+	</welcome:states>
+	<welcome:layout>
+		<s:VerticalLayout paddingLeft="8" paddingRight="8" paddingBottom="8" paddingTop="8"/>
+	</welcome:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout gap="10" verticalAlign="middle"/>
+		</s:layout>
+		<mx:Image source="{Assets.OK_ICON_BIG}" />
+		<s:RichText fontSize="23" id="caption" width="100%" paddingBottom="5" paddingTop="10"/>	
+	</s:Group>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout  paddingTop="10"/>
+		</s:layout>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout />
+			</s:layout>
+			<mx:LinkButton icon="{Assets.DELETE}"  label="Закрыть" paddingRight="8" fontSize="16" height="36" fontWeight="bold" useHandCursor="false" click="onCloseClick()"/>
+		</s:Group>
+		<s:Group width="50%">
+			<s:layout>
+				<s:HorizontalLayout horizontalAlign="right" />
+			</s:layout>	
+			<mx:Button height="36" fontSize="16" horizontalGap="8" id="addButton" icon="{Assets.PRO_MODE_ICON}" labelPlacement="left" fontWeight="bold" click="onProClick()"/>
+		</s:Group>
+	</s:Group>
+</welcome:NavigatorContent>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" borderSkin="mx.skins.halo.ToolTipBorder">
+	<fx:Script>
+		<![CDATA[
+			import components.managers.HintManager;
+			import components.welcome.Slides;
+			
+			[Bindable]
+			public var text : String;
+			
+			public var fromViewIndex : int;
+			public var fromViewState : String;
+			public var coins : int;
+			
+			private function onBuyClick() : void
+			{
+				ApplicationModel.topPanel.showWelcomeDialog( Slides.BUY_COINS, null, fromViewIndex, fromViewState, coins );
+				HintManager.hideAll();
+			}
+			
+			public static function create( text : String, fromViewIndex : int = -2, fromViewState : String = null, coins : int = 90 ) : AddMoneyToolTip
+			{
+				var tip : AddMoneyToolTip = new AddMoneyToolTip();
+				tip.width = 200;    
+				tip.text = text;
+				tip.fromViewIndex = fromViewIndex;
+				tip.fromViewState = fromViewState;
+				tip.coins = coins;
+				
+				return tip;	
+			}
+			
+			public static function show( text : String, target : Object = null, fromViewIndex : int = -2, fromViewState : String = null, coins : int = 90 ) : void
+			{
+				HintManager.show( create( text, fromViewIndex, fromViewState, coins ), true, target, true );
+			}
+		]]>
+	</fx:Script>
+	<mx:Text width="100%"  text="{text}"/>
+	<mx:HBox width="100%" horizontalAlign="right" paddingTop="8">
+		<mx:LinkButton label="Пополнить" icon="{Assets.COIN}" textDecoration="underline" paddingLeft="10" horizontalGap="6" height="32" useHandCursor="false" click="onBuyClick()"/>
+	</mx:HBox>
+</mx:VBox>
+

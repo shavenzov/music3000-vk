@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx"
+				xmlns:controls="components.controls.*"
+				autoDrawBackground="true" width="100%" creationComplete="creationComplete()">
+	<fx:Script source="projectitemrenderer.as" />
+	<s:layout>
+		<s:VerticalLayout gap="0" horizontalAlign="right" paddingBottom="4" paddingTop="4" paddingLeft="4" paddingRight="4"/>
+	</s:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:HorizontalLayout verticalAlign="middle" />
+		</s:layout>
+		<mx:Image id="icon" source="{Assets.MIX}"/>
+		<s:Group width="100%">
+			<s:layout>
+				<s:VerticalLayout gap="0" />
+			</s:layout>
+			<mx:Label id="mixName" fontSize="14" width="100%"/>
+			<mx:Label id="created" />
+		</s:Group>
+		<s:Group width="60" height="100%">
+			<s:layout>
+				<s:VerticalLayout gap="0" verticalAlign="top"/>
+			</s:layout>
+			<s:Group>
+				<s:layout>
+					<s:HorizontalLayout gap="0" verticalAlign="middle"/>
+				</s:layout>
+				<mx:Image width="16" height="16" source="{Assets.CLOCK_ICON_WHITE}"/>
+				<mx:Label id="time" fontWeight="bold"/>
+			</s:Group>
+			<s:Group>
+				<s:layout>
+					<s:HorizontalLayout gap="0" verticalAlign="middle"/>
+				</s:layout>
+				<mx:Image width="16" height="16" source="{Assets.METRONOME_ICON}" />
+				<mx:Label id="tempo" fontWeight="bold"/>
+			</s:Group>
+		</s:Group>
+	</s:Group>
+</s:ItemRenderer>

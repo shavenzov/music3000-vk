@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project default="setBuildVersion">
+<target name="setBuildVersion">
+<!--
+		Get the SVN last revision number
+		-->
+<exec outputproperty="src.revision" executable="svnversion">
+         <arg line="-n -c" />
+         <redirector>
+           <outputfilterchain>
+             <tokenfilter>
+                 <replaceregex pattern="^[0-9]*:?" replace="" flags="g"/>
+				 <replaceregex pattern="\D$" replace="" flags="g"/>
+             </tokenfilter>
+          </outputfilterchain>
+        </redirector>
+</exec>
+<!--
+		Get the current date & time for Moscow Russia
+		-->
+<tstamp>
+<format timezone="GMT+4" property="build.time" pattern="dd MMM yyyy HH:mm:ss"/>
+</tstamp>
+
+<property name="template.file" value="build/prebuild/BUILD_template.as"/>
+<property name="result.file" value="src/BUILD.as"/>
+
+<copy file="${template.file}" tofile="${result.file}" overwrite="true" />
+<replace file="${result.file}" token="%REVISION%" value="${src.revision}" />
+<replace file="${result.file}" token="%BUILDTIME%" value="${build.time}" />
+</target>
+</project>

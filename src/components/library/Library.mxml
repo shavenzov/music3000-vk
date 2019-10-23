@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:looperman="components.library.looperman.*"
+			   xmlns:project="components.library.project.*"
+			   xmlns:acapellas="components.library.acapellas.*"
+			   xmlns:controls="components.controls.*" includeInLayout="false" visible="false" height="0" creationComplete="onCreationComplete()">
+	<fx:Script source="library.as" />
+	<fx:Declarations>
+		<mx:Fade id="Show" duration="{TWEEN_DURATION}" alphaFrom="0.0" alphaTo="1.0"/>
+		<mx:Fade id="Hide" duration="{TWEEN_DURATION}" alphaFrom="1.0" alphaTo="0.0"/>
+	</fx:Declarations>
+	<s:Group horizontalCenter="0" top="4">
+		<s:layout>
+			<s:HorizontalLayout gap="0"/>
+		</s:layout>
+		<mx:ViewStack resizeToContent="true" id="viewStack" creationPolicy="none">
+			<looperman:LoopermanLibrary id="samples"/>
+			<acapellas:AcapellaLibrary id="acapellas"/>
+			<project:ProjectSamples id="projects" searchBoxEnabledChanged="onSearchBoxEnabledChanged()"/>
+		</mx:ViewStack>
+		<s:Group height="100%">
+			<s:layout>
+				<s:VerticalLayout gap="0" />
+			</s:layout>
+			<mx:Button id="showOnlyFavorite" focusEnabled="false" tabEnabled="false" toggle="true" width="50" height="50" icon="{Assets.FAVORITE_BIG_ICON}" toolTip="Показывать только избранные сэмплы" click="onShowOnlyFavoriteButtonClick()"/>
+			<s:Group id="pages" height="100%" width="100%">
+			 <s:layout>
+				 <s:VerticalLayout gap="0" paddingTop="50"/>
+			 </s:layout>
+				<mx:Button focusEnabled="false" tabEnabled="false" width="50" height="50" icon="{Assets.LIBRARY_PANEL_ICON}" toolTip="Библиотека сэмплов" click="show(0)"/>
+				<mx:Button focusEnabled="false" tabEnabled="false" width="50" height="50" icon="{Assets.ACAPELLA_PANEL_ICON}" toolTip="Библиотека вокала" click="show(1)"/>
+				<mx:Button focusEnabled="false" tabEnabled="false" width="50" height="50" icon="{Assets.PROJECT_SAMPLES_PANEL_ICON}" toolTip="Сэмплы микса" click="show(2)"/>	
+			</s:Group>
+		</s:Group>
+	</s:Group>
+</controls:Panel>

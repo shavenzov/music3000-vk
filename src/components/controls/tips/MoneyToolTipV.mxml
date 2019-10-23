@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" styleName="toolTip" borderSkin="mx.skins.halo.ToolTipBorder" implements="mx.core.IToolTip" verticalGap="0">
+	<fx:Script>
+		<![CDATA[
+			
+			private var _text : String;
+			
+			[Bindable]
+			public function get text() : String
+			{
+				return _text;
+			}
+			
+			public function set text( value : String ) : void
+			{
+				_text = value;
+			}
+			
+			[Bindable]
+			public var price : String;
+			
+		]]>
+	</fx:Script>
+	<mx:Text id="tip" text="{text}" fontWeight="bold" fontSize="14"/>
+	<mx:HBox  width="100%" horizontalAlign="right" verticalAlign="middle" horizontalGap="4" paddingRight="8">
+		<mx:Label id="coins" text="{price}" fontWeight="bold" fontSize="16"/>
+		<mx:Image source="{Assets.COIN}" width="12" height="12" />
+	</mx:HBox>
+</mx:VBox>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+    ADOBE SYSTEMS INCORPORATED
+    Copyright 2008 Adobe Systems Incorporated
+    All Rights Reserved.
+
+    NOTICE: Adobe permits you to use, modify, and distribute this file
+    in accordance with the terms of the license agreement accompanying it.
+
+-->
+
+<!--- The default skin class for the track of a Spark HSlider component.  
+
+       @see spark.components.HSlider
+        
+      @langversion 3.0
+      @playerversion Flash 10
+      @playerversion AIR 1.5
+      @productversion Flex 4
+-->
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+	xmlns:mx="library://ns.adobe.com/flex/mx">
+    <fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
+   
+    <s:states>
+        <s:State name="up" />
+        <s:State name="down" />
+        <s:State name="over" />
+        <s:State name="disabled" />
+    </s:states>
+
+<s:Group left="2" right="0" top="4">
+	<s:Path width="100%" data="M131.65 0 0 0">
+		<s:stroke>
+			<s:SolidColorStroke weight="4.3" color="#505050"/>
+		</s:stroke>
+		<s:filters>
+			<s:DropShadowFilter blurX="5" blurY="5" strength="0.51" distance="5" inner="true"/>
+			<s:GlowFilter blurX="2" blurY="2" strength="0.66" color="#CCCCCC"/>
+		</s:filters>
+	</s:Path>
+</s:Group>
+	
+</s:Skin>

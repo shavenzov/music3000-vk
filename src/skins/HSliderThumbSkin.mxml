@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+    ADOBE SYSTEMS INCORPORATED
+    Copyright 2008 Adobe Systems Incorporated
+    All Rights Reserved.
+
+    NOTICE: Adobe permits you to use, modify, and distribute this file
+    in accordance with the terms of the license agreement accompanying it.
+
+-->
+
+<!--- The default skin class for the thumb of a Spark HSlider component.  
+
+       @see spark.components.HSlider
+        
+      @langversion 3.0
+      @playerversion Flash 10
+      @playerversion AIR 1.5
+      @productversion Flex 4
+ -->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+	xmlns:mx="library://ns.adobe.com/flex/mx">
+    <fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
+
+    <s:states>
+        <s:State name="up" />
+        <s:State name="over" />
+        <s:State name="down" />
+        <s:State name="disabled"/>
+    </s:states>
+<s:Group>
+	<s:Group scaleY="0.80099487" x="-21.5">
+		<s:Path scaleX="0.25846863" scaleY="0.86938477" x="-131.75" y="-387.3" data="M652 451.2Q652 453.55 650.3 455.2 648.65 456.9 646.3 456.9L598.7 456.9Q596.35 456.9 594.65 455.2 593 453.55 593 451.2 593 448.85 594.65 447.15 596.35 445.5 598.7 445.5L646.3 445.5Q648.65 445.5 650.3 447.15 652 448.85 652 451.2">
+			<s:fill>
+				<s:SolidColor color="#666666"/>
+			</s:fill>
+			<s:filters>
+				<s:GlowFilter blurX="2" blurY="2" color="#CCCCCC"/>
+				<s:BevelFilter strength="0.32" angle.down="74.999997" distance="2"/>
+			</s:filters>
+		</s:Path>	
+	</s:Group>
+	<s:Group x="6.3" y="2.45" alpha.down="0.6484375">
+		<s:Path data="M2.4 2.4Q2 2.8 1.4 2.8 0.8 2.8 0.4 2.4 0 2 0 1.4 0 0.8 0.4 0.4 0.8 0 1.4 0 2 0 2.4 0.4 2.8 0.8 2.8 1.4 2.8 2 2.4 2.4">
+			<s:stroke>
+				<s:SolidColorStroke weight="0.8" color="#FFD200" alpha="0.75294119"/>
+			</s:stroke>
+			<s:filters>
+				<s:DropShadowFilter distance="0"/>
+				<s:GlowFilter includeIn="over" blurX="5" blurY="5" strength="0.65" color="#FFFF00"/>
+			</s:filters>
+		</s:Path>
+	</s:Group>
+	<s:filters>
+		<s:DropShadowFilter strength="0.45" angle="9" distance="0"/>
+		<s:BevelFilter includeIn="down" strength="0.32" angle="74.999997" distance="2"/>
+	</s:filters>
+</s:Group>
+	
+</s:SparkSkin>

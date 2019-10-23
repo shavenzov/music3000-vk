@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				   xmlns:s="library://ns.adobe.com/flex/spark" 
+				   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="100" minHeight="80" maxWidth="400" maxHeight="310" borderColor="#000000" borderAlpha="0.85" cornerRadius="8" borderWeight="2" backgroundColor="#333333" backgroundAlpha="0.85">
+	<s:layout>
+		<s:VerticalLayout paddingLeft="10" paddingRight="10" paddingBottom="8" paddingTop="8"/>
+	</s:layout>
+	<s:BorderContainer width="100%" minHeight="0" borderAlpha="0.5" backgroundColor="#000000" backgroundAlpha="0.5">
+		<s:layout>
+			<s:HorizontalLayout verticalAlign="middle"  paddingLeft="4"/>
+		</s:layout>
+		<mx:Image id="icon" />
+		<mx:Label id="caption" fontSize="16" width="100%"/>
+	</s:BorderContainer>
+	<mx:Text id="message" maxWidth="380" fontSize="16"/>
+	<s:Group id="buttons" width="100%">
+		<s:layout>
+			<s:HorizontalLayout horizontalAlign="center" paddingBottom="8" paddingTop="8"/>
+		</s:layout>
+	</s:Group>
+</s:BorderContainer>

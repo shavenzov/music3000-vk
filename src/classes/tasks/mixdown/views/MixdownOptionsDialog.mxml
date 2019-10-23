@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				   xmlns:s="library://ns.adobe.com/flex/spark" 
+				   xmlns:mx="library://ns.adobe.com/flex/mx"
+				   xmlns:controls="components.controls.*"
+				   width="450" borderColor="#666666" borderWeight="2" backgroundColor="#333333" backgroundAlpha="0.85" cornerRadius="8" initialize="onInit()" creationComplete="creationComplete()">
+	<fx:Script source="mixdownoptionsdialog.as" />
+	<fx:Declarations>
+		<s:Sequence id="fadeEffect" target="{this}">
+			<s:Fade duration="250" alphaFrom="1.0" alphaTo="0.0" effectEnd="onEffectEnd()"/>
+			<s:Fade duration="250" alphaFrom="0.0" alphaTo="1.0"/>
+		</s:Sequence>
+		<s:Fade id="Hide" duration="250" alphaFrom="1.0" alphaTo="0.0"/>
+		<s:Fade id="Show" duration="250" alphaFrom="0.0" alphaTo="1.0"/>
+	</fx:Declarations>
+	<s:states>
+		<s:State name="start" />
+		<s:State name="publish" stateGroups="publish_save"/>
+		<s:State name="save" stateGroups="publish_save"/>
+		<s:State name="tooLongError" stateGroups="publish_save"/>
+	</s:states>
+	<s:currentState>start</s:currentState>
+	<s:layout>
+		<s:VerticalLayout paddingLeft="8" paddingBottom="8" paddingRight="8" paddingTop="8" gap="12"/>
+	</s:layout>
+	
+	<mx:ViewStack id="viewStack" width="100%" resizeToContent="true" selectedIndex.tooLongError="4" selectedIndex.start="0" selectedIndex.publish="2" selectedIndex.save="1">
+		
+		<!-- Выбор варианта публикации -->
+		
+		<s:NavigatorContent width="100%">
+			<s:layout>
+				<s:VerticalLayout  horizontalAlign="center" gap="2"/>
+			</s:layout>
+			<s:Group width="100%">
+				<s:layout>
+					<s:HorizontalLayout verticalAlign="middle" paddingLeft="4" paddingBottom="16"/>
+				</s:layout>
+				<mx:Image source="{Assets.MIXDOWN}" />
+				<mx:Label text="Выбери один из вариантов публикации" fontSize="22" fontWeight="bold"/>
+			</s:Group>
+			<controls:LinkButton width="380" height="56" label="Опубликовать микс в &quot; Мои аудиозаписи &quot;" textAlign="left" fontSize="16"  horizontalGap="10" icon="{Assets.MY_AUDIOS_ICON}" click="onPublishToMyAudioClick( event )"/>
+			<controls:LinkButton width="380" height="56" label="Сохранить микс на компьютере" textAlign="left" fontSize="16" horizontalGap="10" icon="{Assets.SAVE_TO_COMPUTER_ICON}" click="onSaveToMyComputerClick( event )"/>
+		    <s:Group id="publishSelectedGroup" width="100%" creationComplete="onPublishSelectedGroupContentCreated()">
+				<s:layout>
+					<s:VerticalLayout horizontalAlign="center" verticalAlign="middle" paddingTop="16" gap="16" paddingBottom="16"/>
+				</s:layout>
+				<controls:HSpacer width="100%" />
+				<mx:CheckBox id="publishSelectedOption" label="Опубликовать выбранную область" fontSize="14" click="publishSelectedOptionCheckboxClick()"/>
+			</s:Group>
+		</s:NavigatorContent>
+		
+		<!-- Выбор формата и качества микса сохраняемого на компьютер -->
+		
+		<s:NavigatorContent width="100%">
+			<s:layout>
+				<s:VerticalLayout horizontalAlign="center" />
+			</s:layout>
+			<s:Group width="100%">
+				<s:layout>
+					<s:HorizontalLayout verticalAlign="middle" paddingLeft="4" paddingBottom="16"/>
+				</s:layout>
+				<mx:Image source="{Assets.MIXDOWN}" />
+				<mx:Label text="Выбери формат и качество микса" fontSize="22" fontWeight="bold"/>
+			</s:Group>	
+				<s:Group id="formatGroup">
+					<s:layout>
+						<s:HorizontalLayout gap="0" paddingBottom="4"/>
+					</s:layout>
+					<controls:LinkButton width="80" height="80" icon="{Assets.MP3_ICON}" selected="true" click="mp3ButtonClick( event )"/>
+					<controls:LinkButton width="80" height="80" icon="{Assets.WAV_ICON}" click="wavButtonClick( event )"/>
+				</s:Group>
+					<mx:ViewStack width="100%" id="formatViewStack">
+						<s:NavigatorContent width="100%" showEffect="Show" hideEffect="Hide" contentCreationComplete="selectDefaultFormatAndQuality( event )">
+							<s:layout>
+								<s:HorizontalLayout gap="0" horizontalAlign="center"/>
+							</s:layout>
+							<s:Group name="{PublisherAPI.QUALITY_128_K}"  width="130" height="50">
+								<controls:LinkButton left="0" right="0" top="0" bottom="0" click="onSelect( event )"/>	
+								<s:Group left="0" right="0" top="0" bottom="0" mouseChildren="false" mouseEnabled="false">
+									<s:layout>
+										<s:HorizontalLayout gap="10" paddingLeft="8" paddingRight="8" verticalAlign="middle" horizontalAlign="center"/>
+									</s:layout>
+									<mx:Image source="{Assets.SMALL_WAVE_ICON}" />
+									<s:RichText>
+										<s:content>
+											<s:p fontWeight="bold" fontSize="14">
+												Стандартное	
+											</s:p>
+											<s:p>
+												128 кбит/с
+											</s:p>
+										</s:content>
+									</s:RichText>
+								</s:Group>
+							</s:Group>
+							<s:Group name="{PublisherAPI.QUALITY_192_K}" width="130" height="50">
+								<controls:LinkButton left="0" right="0" top="0" bottom="0"  click="onSelect( event )"/>	
+								<s:Group left="0" right="0" top="0" bottom="0" mouseChildren="false" mouseEnabled="false">
+									<s:layout>
+										<s:HorizontalLayout gap="10" paddingLeft="8" paddingRight="8" verticalAlign="middle" horizontalAlign="center"/>
+									</s:layout>
+									<mx:Image source="{Assets.SMALL_WAVE_ICON}" />
+									<s:RichText>
+										<s:content>
+											<s:p fontWeight="bold" fontSize="14">
+												Хорошее
+											</s:p>
+											<s:p>
+												192 кбит/с
+											</s:p>
+										</s:content>
+									</s:RichText>
+								</s:Group>
+							</s:Group>
+							<s:Group name="{PublisherAPI.QUALITY_320_K}" width="130" height="50">
+								<controls:LinkButton left="0" right="0" top="0" bottom="0" click="onSelect( event )"/>	
+								<s:Group left="0" right="0" top="0" bottom="0" mouseChildren="false" mouseEnabled="false">
+									<s:layout>
+										<s:HorizontalLayout gap="10" paddingLeft="8" paddingRight="8" verticalAlign="middle" horizontalAlign="center"/>
+									</s:layout>
+									<mx:Image source="{Assets.SMALL_WAVE_ICON}" />
+									<s:RichText>
+										<s:content>
+											<s:p fontWeight="bold" fontSize="14">
+												Лучшее
+											</s:p>
+											<s:p>
+												320 кбит/с
+											</s:p>
+										</s:content>
+									</s:RichText>
+								</s:Group>
+							</s:Group>
+						</s:NavigatorContent>
+						<s:NavigatorContent width="100%" showEffect="Show" hideEffect="Hide" contentCreationComplete="selectDefaultFormatAndQuality( event )">
+							<s:layout>
+								<s:HorizontalLayout gap="0" horizontalAlign="center"/>
+							</s:layout>
+							<s:Group name="{PublisherAPI.QUALITY_16_BIT_44100}" width="130" height="50">
+								<controls:LinkButton left="0" right="0" top="0" bottom="0"  click="onSelect( event )"/>	
+								<s:Group left="0" right="0" top="0" bottom="0" mouseChildren="false" mouseEnabled="false">
+									<s:layout>
+										<s:HorizontalLayout gap="10" paddingLeft="8" paddingRight="8" verticalAlign="middle" horizontalAlign="center"/>
+									</s:layout>
+									<mx:Image source="{Assets.SMALL_WAVE_ICON}" />
+									<s:RichText>
+										<s:content>
+											<s:p fontWeight="bold" fontSize="14">
+												CD	
+											</s:p>
+											<s:p>
+												16 Бит
+											</s:p>
+										</s:content>
+									</s:RichText>
+								</s:Group>
+							</s:Group>
+							<s:Group name="{PublisherAPI.QUALITY_24_BIT_44100}" width="130" height="50">
+								<controls:LinkButton left="0" right="0" top="0" bottom="0"  click="onSelect( event )"/>	
+								<s:Group left="0" right="0" top="0" bottom="0" mouseChildren="false" mouseEnabled="false">
+									<s:layout>
+										<s:HorizontalLayout gap="10" paddingLeft="8" paddingRight="8" verticalAlign="middle" horizontalAlign="center"/>
+									</s:layout>
+									<mx:Image source="{Assets.SMALL_WAVE_ICON}" />
+									<s:RichText>
+										<s:content>
+											<s:p fontWeight="bold" fontSize="14">
+												Pro
+											</s:p>
+											<s:p>
+												24 Бита
+											</s:p>
+										</s:content>
+									</s:RichText>
+								</s:Group>
+							</s:Group>
+							<s:Group name="{PublisherAPI.QUALITY_32_BIT_44100}" width="130" height="50">
+								<controls:LinkButton left="0" right="0" top="0" bottom="0" click="onSelect( event )"/>	
+								<s:Group left="0" right="0" top="0" bottom="0" mouseChildren="false" mouseEnabled="false">
+									<s:layout>
+										<s:HorizontalLayout gap="10" paddingLeft="8" paddingRight="8" verticalAlign="middle" horizontalAlign="center"/>
+									</s:layout>
+									<mx:Image source="{Assets.SMALL_WAVE_ICON}" />
+									<s:RichText>
+										<s:content>
+											<s:p fontWeight="bold" fontSize="14">
+												Maximum
+											</s:p>
+											<s:p>
+												32 Бита
+											</s:p>
+										</s:content>
+									</s:RichText>
+								</s:Group>
+							</s:Group>
+						</s:NavigatorContent>
+					</mx:ViewStack>
+		</s:NavigatorContent>
+		
+		<!-- Настройка качества микса публикуемого в "Мои аудиозаписи" -->
+		
+		<s:NavigatorContent width="100%">
+			<s:layout>
+				<s:VerticalLayout horizontalAlign="center" />
+			</s:layout>
+			<s:Group width="100%">
+				<s:layout>
+					<s:HorizontalLayout verticalAlign="middle" paddingLeft="4" paddingBottom="16"/>
+				</s:layout>
+				<mx:Image source="{Assets.MIXDOWN}" />
+				<mx:Label text="Выбери качество микса" fontSize="22" fontWeight="bold"/>
+			</s:Group>
+			<s:Group id="publishToAudioQualityGroup" creationComplete="selectDefaultFormatAndQuality( event )">
+				<s:layout>
+					<s:HorizontalLayout gap="0" horizontalAlign="center"/>
+				</s:layout>
+				<s:Group name="{PublisherAPI.QUALITY_128_K}" width="130" height="50">
+					<controls:LinkButton left="0" right="0" top="0" bottom="0"  click="onSelect( event )"/>	
+					<s:Group left="0" right="0" top="0" bottom="0" mouseChildren="false" mouseEnabled="false">
+						<s:layout>
+							<s:HorizontalLayout gap="10" paddingLeft="8" paddingRight="8" verticalAlign="middle" horizontalAlign="center"/>
+						</s:layout>
+						<mx:Image source="{Assets.SMALL_WAVE_ICON}" />
+						<s:RichText>
+							<s:content>
+								<s:p fontWeight="bold" fontSize="14">
+									Стандартное	
+								</s:p>
+								<s:p>
+									128 кбит/с
+								</s:p>
+							</s:content>
+						</s:RichText>
+					</s:Group>
+				</s:Group>
+				<s:Group name="{PublisherAPI.QUALITY_192_K}" width="130" height="50">
+					<controls:LinkButton left="0" right="0" top="0" bottom="0"  click="onSelect( event )"/>	
+					<s:Group left="0" right="0" top="0" bottom="0" mouseChildren="false" mouseEnabled="false">
+						<s:layout>
+							<s:HorizontalLayout gap="10" paddingLeft="8" paddingRight="8" verticalAlign="middle" horizontalAlign="center"/>
+						</s:layout>
+						<mx:Image source="{Assets.SMALL_WAVE_ICON}" />
+						<s:RichText>
+							<s:content>
+								<s:p fontWeight="bold" fontSize="14">
+									Хорошее
+								</s:p>
+								<s:p>
+									192 кбит/с
+								</s:p>
+							</s:content>
+						</s:RichText>
+					</s:Group>
+				</s:Group>
+				<s:Group name="{PublisherAPI.QUALITY_320_K}" width="130" height="50">
+					<controls:LinkButton left="0" right="0" top="0" bottom="0" click="onSelect( event )"/>	
+					<s:Group left="0" right="0" top="0" bottom="0" mouseChildren="false" mouseEnabled="false">
+						<s:layout>
+							<s:HorizontalLayout gap="10" paddingLeft="8" paddingRight="8" verticalAlign="middle" horizontalAlign="center"/>
+						</s:layout>
+						<mx:Image source="{Assets.SMALL_WAVE_ICON}" />
+						<s:RichText>
+							<s:content>
+								<s:p fontWeight="bold" fontSize="14">
+									Лучшее
+								</s:p>
+								<s:p>
+									320 кбит/с
+								</s:p>
+							</s:content>
+						</s:RichText>
+					</s:Group>
+				</s:Group>
+			</s:Group>
+		</s:NavigatorContent>
+		
+		<!-- Выбран режим зацикливания определенной области, поэтому, спрашиваем пользователя публиковать микс целиком или только указанную часть -->
+		
+		<s:NavigatorContent width="100%">
+			<s:layout>
+				<s:VerticalLayout horizontalAlign="center" />
+			</s:layout>
+			<s:Group width="100%">
+				<s:layout>
+					<s:HorizontalLayout verticalAlign="top" paddingLeft="4" paddingBottom="16"/>
+				</s:layout>
+				<mx:Image id="repeatIcon" source="{ styleManager.getStyleDeclaration( '.repeatButton' ).getStyle( 'selectedUpSkin' ) }" />
+				<s:Label text="Публиковать весь микс или только указанную область?" fontSize="24" fontWeight="bold" maxWidth="300"/>
+			</s:Group>
+		</s:NavigatorContent>
+		
+		<!-- Длина микса превышает 5 минут и режим pro не подключен -->
+		<s:NavigatorContent width="100%">
+			<s:layout>
+				<s:VerticalLayout horizontalAlign="center" />
+			</s:layout>
+			<s:Group width="100%">
+				<s:layout>
+					<s:HorizontalLayout verticalAlign="top" paddingLeft="4" paddingBottom="16" paddingTop="4" gap="8"/>
+				</s:layout>
+				<mx:Image source="{Assets.MIXDOWN}" />
+				<s:RichText fontSize="16" maxWidth="350">
+				 <s:content>
+					 Длина микса превышает <s:span fontWeight="bold">5 минут</s:span>. Публикация больших миксов поддерживается только в режиме <s:span fontWeight="bold">PRO</s:span>.
+					 <s:br/><s:br/>
+					 <s:span fontSize="20">Опубликовать микс с ограничением в</s:span><s:span fontSize="20" fontWeight="bold"> 5 минут</s:span><s:span fontSize="20">?</s:span>
+				 </s:content>
+				</s:RichText>	
+			</s:Group>
+			<mx:Button label="Подключить режим" textDecoration="underline" icon="{Assets.PRO_MODE_ICON}" labelPlacement="left" useHandCursor="false" fontSize="16" fontWeight="bold" height="36" click="switchOnProModeClick()"/>
+		</s:NavigatorContent>
+		
+		
+	</mx:ViewStack>
+	
+	<s:Group id="footer" width="100%">
+		<controls:HSpacer left="0" right="0" top="0" />
+		<controls:LinkButton includeIn="publish,save,tooLongError" icon="{Assets.ARROW_LEFT}" left="4" top="12" label="Назад" paddingRight="8" fontSize="16" fontWeight="bold" height="36" click="changeCurrentState('start')"/>
+		<controls:LinkButton includeIn="start" icon="{Assets.DELETE}" id="closeButton" right.start="4" left.tooLongError="4" top="12" label="Закрыть" labelPlacement.start="left" paddingRight="8" fontSize="16" fontWeight="bold" height="36" click="closeClick()"/>
+		<mx:Button includeIn="publish_save" icon="{Assets.MIXDOWN}"  labelPlacement="left" right="4" top="12" label="Опубликовать" paddingRight="8" fontSize="16" fontWeight="bold" height="36" click="publishClick()"/>
+	</s:Group>
+</s:BorderContainer>

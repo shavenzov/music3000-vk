@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<welcome:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:welcome="components.welcome.*"
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="500" contentCreationComplete="creationComplete()" show="onShow()">
+	<fx:Script source="firstTime.as" />
+	<fx:Metadata>
+		[Event(name="go", type="components.welcome.events.GoToEvent")]
+	</fx:Metadata>
+	<welcome:layout>
+		<s:VerticalLayout gap="16" horizontalAlign="right"/>
+	</welcome:layout>
+	<s:Group width="100%">
+		<s:layout>
+			<s:VerticalLayout gap="24"/>
+		</s:layout>
+		<s:Group width="100%">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="middle" paddingLeft="2" paddingTop="2"/>
+			</s:layout>
+			<mx:Image source="{Assets.LOGO}" width="72" height="66"/>
+			<s:RichText id="title" width="100%" fontSize="22"/>
+		</s:Group>
+		<s:RichText width="100%" fontSize="16">
+			<s:content>
+			 С помощью этой программы ты с легкостью создашь классные миксы в любом музыкальном жанре.
+			 Создавай музыку и устраивай вечеринки для своих друзей!<s:br/><s:br/><s:br/>
+			 Жми "Далее" для просмотра Видео-Введения и Демо Миксов.	
+			</s:content>
+		</s:RichText>
+	</s:Group>
+	<mx:LinkButton label="Далее" horizontalGap="8" height="36" icon="{Assets.ARROW_RIGHT}" labelPlacement="left" fontSize="16" fontWeight="bold" useHandCursor="false" click="nextClick()"/>
+</welcome:NavigatorContent>

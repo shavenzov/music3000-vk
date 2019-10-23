@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+    ADOBE SYSTEMS INCORPORATED
+    Copyright 2008 Adobe Systems Incorporated
+    All Rights Reserved.
+
+    NOTICE: Adobe permits you to use, modify, and distribute this file
+    in accordance with the terms of the license agreement accompanying it.
+
+-->
+
+<!--- The default skin class for the track on a Spark HScrollBar component.  
+
+       @see spark.components.HScrollBar
+        
+      @langversion 3.0
+      @playerversion Flash 10
+      @playerversion AIR 1.5
+      @productversion Flex 4
+-->
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+			 xmlns:mx="library://ns.adobe.com/flex/mx">
+    <fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
+
+    <s:states>
+        <s:State name="up" />
+        <s:State name="down" />
+        <s:State name="over" />
+        <s:State name="disabled" />
+    </s:states>
+
+	<s:Rect  left="0" right="0" top="0" bottom="0"> 
+		<s:fill>
+			<s:SolidColor color="#505050" alpha="0.75"/>
+		</s:fill>
+		<s:filters>
+			<s:DropShadowFilter blurX="5" blurY="5" strength="0.46" distance="5" inner="true"/>
+			<s:GlowFilter blurX="2" blurY="2" strength="0.66" strength.down="1" color="#CCCCCC"/>
+		</s:filters>
+	</s:Rect>
+</s:Skin>
